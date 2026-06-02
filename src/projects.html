@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects | Fadhil Gani</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script>
+        // --- Tailwind Config ---
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "var(--primary, #8FB060)",
+                        "on-surface": "#1b1b1d",
+                        "on-surface-variant": "#414755",
+                        "surface": "#fcf8fb",
+                        "background": "#fcf8fb",
+                        "outline-variant": "#c1c6d7",
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "80px",
+                        "container-max": "1200px",
+                        "lg": "48px",
+                        "sm": "12px",
+                        "unit": "8px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Geist"],
+                        "label-md": ["Geist"],
+                        "headline-lg": ["Geist"],
+                        "display-2xl": ["Geist"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display-2xl": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "300" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "300" }]
+                    }
+                }
+            }
+        };
+    </script>
+    <script src="js/translations.js" defer></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/modal.js" defer></script>
+</head>
+
+<body class="antialiased overflow-x-hidden transition-colors duration-1000">
+    <div class="noise-overlay"></div>
+    <div id="grid-bg"></div>
+
+    <!-- Navigation (Desktop + Mobile responsive) -->
+
+    <!-- Desktop Top Navigation - Liquid Glass Pill -->
+    <header class="fixed top-8 right-8 z-50 w-auto hidden md:block">
+        <div class="nav-pill rounded-full px-4 py-2 flex items-center gap-2 relative overflow-hidden" id="main-nav">
+            <div class="nav-backdrop" id="nav-backdrop"></div>
+            <nav class="flex gap-1 items-center relative z-20">
+                <a class="nav-link px-5 py-2 rounded-full text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary transition-all text-[11px] font-bold uppercase tracking-widest"
+                    data-i18n="nav.home" href="../index.html">
+                    Home
+                </a>
+                <a class="nav-link px-5 py-2 rounded-full text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary transition-all text-[11px] font-bold uppercase tracking-widest active-nav"
+                    data-i18n="nav.project" href="projects.html">
+                    Projects
+                </a>
+                <a class="nav-link px-5 py-2 rounded-full text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary transition-all text-[11px] font-bold uppercase tracking-widest"
+                    data-i18n="nav.cert" href="certificates.html">
+                    Certificates
+                </a>
+            </nav>
+
+            <div class="flex gap-4 items-center border-l border-outline-variant/30 dark:border-white/10 pl-6 relative z-20">
+                <button class="theme-toggle-btn relative js-theme-toggle" id="theme-toggle" title="Toggle Theme">
+                    <div class="theme-icon-wrap overflow-hidden relative w-[18px] h-[18px] flex items-center justify-center">
+                        <span class="material-symbols-outlined js-theme-icon text-on-surface-variant dark:text-primary text-[18px] leading-none" id="theme-icon">dark_mode</span>
+                    </div>
+                </button>
+
+                <button class="hover:scale-105 transition-transform flex items-center gap-1 border dark:border-white/20 rounded-full px-3 py-2 text-xs font-bold text-on-surface-variant dark:text-primary js-lang-toggle"
+                    id="lang-toggle" title="Change Language">
+                    <span class="material-symbols-outlined text-[14px]">language</span>
+                    <span>EN</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Top Bar -->
+    <div class="md:hidden mobile-topbar fixed inset-x-0 top-4 z-50 px-4">
+        <div class="flex items-center justify-between gap-3">
+            <div class="liquid-glass !bg-white/30 dark:!bg-slate-900/30 rounded-full px-4 py-2 flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary dark:text-primary text-lg sparkle-anim">auto_awesome</span>
+                <span class="font-bold text-xs sm:text-sm text-on-surface dark:text-white tracking-widest uppercase">Mikhael Rakarenzo</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <button class="theme-toggle-btn relative js-theme-toggle" title="Toggle Theme">
+                    <div class="theme-icon-wrap overflow-hidden relative w-[18px] h-[18px] flex items-center justify-center">
+                        <span class="material-symbols-outlined js-theme-icon text-on-surface-variant dark:text-primary text-[18px] leading-none">dark_mode</span>
+                    </div>
+                </button>
+                <button class="hover:scale-105 transition-transform flex items-center gap-1 border dark:border-white/20 rounded-full px-3 py-2 text-xs font-bold text-on-surface-variant dark:text-primary js-lang-toggle"
+                    title="Change Language">
+                    <span class="material-symbols-outlined text-[16px]">language</span>
+                    <span>EN</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-2">
+        <div class="flex justify-between gap-2 max-w-3xl mx-auto bg-white/90 dark:bg-slate-900/90 border border-outline-variant/20 dark:border-white/10 rounded-full px-4 py-3 shadow-2xl backdrop-blur-xl">
+            <a href="../index.html" data-i18n="nav.home" class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+                <span class="material-symbols-outlined text-2xl">home</span>
+                <span>Home</span>
+            </a>
+            <a href="projects.html" data-i18n="nav.project" class="mobile-nav-item active flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+                <span class="material-symbols-outlined text-2xl">category</span>
+                <span>Projects</span>
+            </a>
+            <a href="certificates.html" data-i18n="nav.cert" class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+                <span class="material-symbols-outlined text-2xl">verified</span>
+                <span>Certificates</span>
+            </a>
+<a href="../index.html#tentang" data-i18n="nav.about" class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+                <span class="material-symbols-outlined text-2xl">person</span>
+                <span>About</span>
+            </a>
+        </div>
+    </nav>
+
+
+    <main class="max-w-container-max mx-auto px-8 pt-40 pb-20">
+        <!-- Section Header -->
+        <div class="mb-20 space-y-4 reveal-section">
+            <h1 class="font-display-2xl text-6xl font-black tracking-tighter text-primary" data-i18n="project.title">
+                Enterprise Projects
+            </h1>
+            <p
+                class="text-on-surface-variant dark:text-gray-400 max-w-2xl text-lg leading-relaxed font-medium uppercase tracking-widest text-xs" data-i18n="project.desc">
+                A comprehensive collection of my professional journey and enterprise web applications.
+            </p>
+        </div>
+
+        <!-- Projects Grid -->
+        <section class="space-y-12 mb-32 reveal-section">
+            <div id="project-grid-all" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Data injected via JS -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Container -->
+    <div id="project-modal"
+        class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 opacity-0 pointer-events-none transition-all duration-500">
+        <div class="absolute inset-0 bg-slate-900/40 dark:bg-black/80 backdrop-blur-md modal-overlay"></div>
+        <div class="relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-[#030712] border border-black/10 dark:border-white/10 rounded-[40px] shadow-2xl overflow-hidden transform scale-95 transition-all duration-500 card-outline flex flex-col"
+            id="modal-content">
+            <button id="close-modal"
+                class="absolute top-6 right-6 w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-on-surface dark:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-colors z-50">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="overflow-y-auto hide-scrollbar p-8 md:p-12 flex-1">
+                <div id="modal-body" class="space-y-8"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectGridAll = document.getElementById('project-grid-all');
+
+
+            function renderGrid() {
+                if (projectGridAll && typeof projData !== 'undefined') {
+                    projectGridAll.innerHTML = ''; // Clear before re-rendering
+                    projData.forEach(p => {
+                        const displayDesc = (typeof currentLang !== 'undefined' && currentLang === 'id' && p.desc_id) ? p.desc_id : p.desc;
+                        const displayCategory = (typeof currentLang !== 'undefined' && currentLang === 'id' && p.category_id) ? p.category_id : p.category;
+
+                        const card = document.createElement('div');
+                        card.className = "card-outline liquid-glass card-layered rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_50px_rgba(var(--primary-rgb,143,176,96),0.15)] group cursor-pointer p-4 flex flex-col";
+                        card.innerHTML = `
+                            <div class="rounded-[2rem] overflow-hidden mb-6 aspect-[4/3] p-1">
+                                <img alt="${p.title}" class="w-full h-full object-cover rounded-[1.75rem] group-hover:scale-105 transition-transform duration-700" src="${p.img}">
+                            </div>
+                            <div class="px-2 pb-2 flex-1 flex flex-col">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="font-bold text-xl text-on-surface dark:text-white leading-tight group-hover:text-primary transition-colors origin-left">${p.title}</h3>
+                                    <span class="material-symbols-outlined text-primary text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">north_east</span>
+                                </div>
+                                <p class="font-medium text-sm text-on-surface-variant dark:text-gray-400 line-clamp-2 leading-relaxed">${displayDesc}</p>
+                                <div class="mt-auto pt-4 flex justify-between items-center text-[10px] font-bold text-on-surface-variant dark:text-gray-500 uppercase tracking-widest border-t border-black/5 dark:border-white/5">
+                                    <span class="truncate w-2/3">${displayCategory}</span>
+                                    <span>${p.year}</span>
+                                </div>
+                            </div>
+                        `;
+                        card.addEventListener('click', () => {
+                            if (typeof openProjectModal === 'function') openProjectModal(p);
+                        });
+                        projectGridAll.appendChild(card);
+                    });
+                }
+            }
+
+            renderGrid();
+            document.addEventListener('languageChanged', renderGrid);
+
+            // Simple reveal observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal-section').forEach(el => observer.observe(el));
+
+            // --- Theme Color Switcher Logic ---
+            const colorBtns = document.querySelectorAll('.theme-color-btn');
+            const root = document.documentElement;
+            const savedColor = localStorage.getItem('theme-color');
+            if (savedColor) root.style.setProperty('--primary', savedColor);
+
+            colorBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const color = btn.getAttribute('data-color');
+                    root.style.setProperty('--primary', color);
+                    localStorage.setItem('theme-color', color);
+                    btn.classList.add('scale-150');
+                    setTimeout(() => btn.classList.remove('scale-150'), 200);
+                });
+            });
+
+        });
+    </script>
+    <!-- Footer -->
+    <footer class="w-full py-12 border-t border-black/5 dark:border-white/5 relative z-10">
+        <div class="max-w-container-max mx-auto px-8">
+            <div class="flex flex-col items-center gap-4">
+                <div
+                    class="font-display-xl text-headline-md font-black tracking-tighter text-on-surface dark:text-white flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary text-2xl sparkle-anim">auto_awesome</span>
+                    MIKHAEL RAKARENZO
+                </div>
+
+                <!-- Theme Color Switcher Integrated into Footer -->
+                <div class="flex gap-4 p-4 liquid-glass rounded-full border-dashed scale-90 opacity-80 hover:opacity-100 transition-opacity">
+                    <button class="theme-color-btn w-6 h-6 rounded-full border-2 border-white/20 shadow-lg transition-transform hover:scale-125 active:scale-95" 
+                            style="background-color: #8FB060;" data-color="#8FB060" title="Default Green"></button>
+                    <button class="theme-color-btn w-6 h-6 rounded-full border-2 border-white/20 shadow-lg transition-transform hover:scale-125 active:scale-95" 
+                            style="background-color: #9B0F06;" data-color="#9B0F06" title="Deep Red"></button>
+                    <button class="theme-color-btn w-6 h-6 rounded-full border-2 border-white/20 shadow-lg transition-transform hover:scale-125 active:scale-95" 
+                            style="background-color: #186301;" data-color="#186301" title="Dark Green"></button>
+                    <button class="theme-color-btn w-6 h-6 rounded-full border-2 border-white/20 shadow-lg transition-transform hover:scale-125 active:scale-95" 
+                            style="background-color: #0bdbb6;" data-color="#0bdbb6" title="Teal"></button>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
