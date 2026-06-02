@@ -201,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Theme Logic (desktop + mobile consistent) ---
     const html = document.documentElement;
     const themeToggles = document.querySelectorAll('.js-theme-toggle');
-    const themeIcons = document.querySelectorAll('#theme-icon, .js-theme-icon');
+    const themeIcons = document.querySelectorAll('#theme-icon, .js-theme-icon, .js-lang-icon');
 
     function getSavedTheme() {
         const saved = localStorage.getItem('theme');
@@ -217,7 +217,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update all possible icons (desktop uses #theme-icon, mobile uses .js-theme-icon)
         themeIcons.forEach(icon => {
             if (!icon) return;
-            icon.textContent = isDark ? 'dark_mode' : 'light_mode';
+            const darkSrc = icon.dataset.darkSrc || 'src/assets/dark_mode_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg';
+            const lightSrc = icon.dataset.lightSrc || 'src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg';
+
+            if (icon.tagName === 'IMG') {
+                icon.src = isDark ? darkSrc : lightSrc;
+            } else {
+                icon.textContent = isDark ? 'dark_mode' : 'light_mode';
+            }
 
             // animate only if the icon is inside an element like desktop/mobile toggle
             icon.classList.remove('icon-anim-rise-sun', 'icon-anim-rise-moon');

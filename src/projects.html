@@ -94,13 +94,13 @@
             <div class="flex gap-4 items-center border-l border-outline-variant/30 dark:border-white/10 pl-6 relative z-20">
                 <button class="theme-toggle-btn relative js-theme-toggle" id="theme-toggle" title="Toggle Theme">
                     <div class="theme-icon-wrap overflow-hidden relative w-[18px] h-[18px] flex items-center justify-center">
-                        <span class="material-symbols-outlined js-theme-icon text-on-surface-variant dark:text-primary text-[18px] leading-none" id="theme-icon">dark_mode</span>
+                        <img id="theme-icon" class="js-theme-icon w-full h-full object-contain" src="../src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" data-dark-src="../src/assets/dark_mode_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg" data-light-src="../src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Theme icon" />
                     </div>
                 </button>
 
-                <button class="hover:scale-105 transition-transform flex items-center gap-1 border dark:border-white/20 rounded-full px-3 py-2 text-xs font-bold text-on-surface-variant dark:text-primary js-lang-toggle"
+                <button class="hover:scale-105 transition-transform flex items-center gap-1 rounded-full px-3 py-2 text-xs font-bold text-on-surface-variant dark:text-primary js-lang-toggle"
                     id="lang-toggle" title="Change Language">
-                    <span class="material-symbols-outlined text-[14px]">language</span>
+                    <img class="js-lang-icon w-[16px] h-[16px]" src="../src/assets/language%20black.svg" data-dark-src="../src/assets/language%20white.svg" data-light-src="../src/assets/language%20black.svg" alt="Language icon" />
                     <span>EN</span>
                 </button>
             </div>
@@ -120,12 +120,12 @@
             <div class="flex items-center gap-2">
                 <button class="theme-toggle-btn relative js-theme-toggle" title="Toggle Theme">
                     <div class="theme-icon-wrap overflow-hidden relative w-[18px] h-[18px] flex items-center justify-center">
-                        <span class="material-symbols-outlined js-theme-icon text-on-surface-variant dark:text-primary text-[18px] leading-none">dark_mode</span>
+                        <img class="js-theme-icon w-full h-full object-contain" src="../src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" data-dark-src="../src/assets/dark_mode_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg" data-light-src="../src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Theme icon" />
                     </div>
                 </button>
-                <button class="hover:scale-105 transition-transform flex items-center gap-1 border dark:border-white/20 rounded-full px-3 py-2 text-xs font-bold text-on-surface-variant dark:text-primary js-lang-toggle"
+                <button class="hover:scale-105 transition-transform flex items-center gap-1 rounded-full px-3 py-2 text-xs font-bold text-on-surface-variant dark:text-primary js-lang-toggle"
                     title="Change Language">
-                    <span class="material-symbols-outlined text-[16px]">language</span>
+                    <img class="js-lang-icon w-[16px] h-[16px]" src="../src/assets/language%20black.svg" data-dark-src="../src/assets/language%20white.svg" data-light-src="../src/assets/language%20black.svg" alt="Language icon" />
                     <span>EN</span>
                 </button>
             </div>
@@ -267,7 +267,7 @@
             <div class="flex flex-col items-center gap-4">
                 <div
                     class="font-display-xl text-headline-md font-black tracking-tighter text-on-surface dark:text-white flex items-center gap-3">
-                    <svg class="text-primary text-2xl sparkle-anim" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="text-primary text-2xl" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 0h24v24H0z" fill="none" />
                         <path fill="currentColor" d="m19 9l-1.25-2.75L15 5l2.75-1.25L19 1l1.25 2.75L23 5l-2.75 1.25L19 9Zm0 14l-1.25-2.75L15 19l2.75-1.25L19 15l1.25 2.75L23 19l-2.75 1.25L19 23ZM9 20l-2.5-5.5L1 12l5.5-2.5L9 4l2.5 5.5L17 12l-5.5 2.5L9 20Z" />
                     </svg>
