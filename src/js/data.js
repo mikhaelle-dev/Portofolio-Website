@@ -25,6 +25,7 @@ const certData = [
         provider: "Cisco",
         date: "2025",
         img: "/src/assets/cert_thumbnail-563.jpg",
+        thumb: "/src/assets/cert_thumbnail-360.jpg",
         links: { demo: "/src/docs/CCNASRWEUpdate20260515-32-vbdfrd.pdf" },
         type: "certification"
     },
@@ -36,6 +37,7 @@ const certData = [
         provider: "Cisco",
         date: "2026",
         img: "/src/assets/cert2_thumbnail-563.jpg",
+        thumb: "/src/assets/cert2_thumbnail-360.jpg",
         links: { demo: "/src/docs/NetworkingBasicsUpdate20260518-31-jlp2pd.pdf" },
         type: "certification"
     },
@@ -47,6 +49,7 @@ const certData = [
         provider: "Cisco",
         date: "2025",
         img: "/src/assets/cert3_thumbnail-563.jpg",
+        thumb: "/src/assets/cert3_thumbnail-360.jpg",
         links: { demo: "/src/docs/I2CSUpdate20260518-31-n803g9.pdf" },
         type: "certification"
     }

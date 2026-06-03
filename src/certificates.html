@@ -5,11 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Certifications </title>
-    <link rel="preload" href="css/tailwind-built.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="css/animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="css/certificates_title_fix.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/tailwind-built.css"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/animations.css"><link rel="stylesheet" href="css/certificates_title_fix.css"></noscript>
+    <link rel="stylesheet" href="css/tailwind-built.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/certificates_title_fix.css">
     
     <script src="js/translations.js" defer></script>
     <script src="js/data.js" defer></script>
@@ -161,7 +159,7 @@
                         card.className = "card-outline liquid-glass card-layered rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_50px_rgba(var(--primary-rgb,143,176,96),0.15)] group cursor-pointer p-4 flex flex-col";
                         card.innerHTML = `
                             <div class="rounded-[2rem] overflow-hidden mb-4 p-0 cert-media" data-aspect="auto">
-                                <img src="${cert.img}" alt="${cert.title}" class="w-full h-full object-cover rounded-[1.75rem] opacity-95 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700" width="400" height="300" loading="lazy" decoding="async">
+                                <img src="${cert.thumb || cert.img}" srcset="${cert.thumb || cert.img} 360w, ${cert.img} 563w" sizes="(min-width: 1024px) 338px, (min-width: 768px) 322px, calc(100vw - 64px)" alt="${cert.title}" class="w-full h-full object-cover rounded-[1.75rem] opacity-95 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-700" width="360" height="278" loading="lazy" decoding="async">
                             </div>
                             <div class="px-3 pb-2 flex-1 flex flex-col">
                                 <div class="flex justify-between items-start mb-1">

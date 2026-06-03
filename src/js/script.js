@@ -20,8 +20,15 @@
         }
     }
 
-    window.addEventListener('scroll', updateGridOpacity, { passive: true });
-    updateGridOpacity(); // set initial state
+    let gridFadeRaf = null;
+    window.addEventListener('scroll', () => {
+        if (gridFadeRaf) return;
+        gridFadeRaf = window.requestAnimationFrame(() => {
+            gridFadeRaf = null;
+            updateGridOpacity();
+        });
+    }, { passive: true });
+    window.requestAnimationFrame(updateGridOpacity);
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -74,10 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.className = "card-outline liquid-glass card-layered rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_50px_rgba(var(--primary-rgb,143,176,96),0.1)] flex flex-col group cursor-pointer p-4";
                 card.innerHTML = `
                     <div class="rounded-[2rem] overflow-hidden mb-6 aspect-[4/3] p-1">
-                        <img src="${cert.img}"
+                        <img src="${cert.thumb || cert.img}"
+                             srcset="${cert.thumb || cert.img} 360w, ${cert.img} 563w"
+                             sizes="(min-width: 1024px) 338px, (min-width: 768px) 322px, calc(100vw - 64px)"
                              alt="${cert.title}"
                              class="w-full h-full object-contain rounded-[1.75rem] opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                             width="400" height="300"
+                             width="360" height="278"
                              loading="lazy" decoding="async" fetchpriority="low">
                     </div>
                     <div class="px-2 pb-2 flex-1 flex flex-col">
@@ -229,7 +238,10 @@ document.addEventListener('DOMContentLoaded', () => {
         setActiveSection(current);
     }
 
-    recalcSectionOffsets();
+    window.requestAnimationFrame(() => {
+        recalcSectionOffsets();
+        updateActiveFromScroll();
+    });
 
     window.addEventListener('scroll', () => {
         if (scrollRaf) return;
