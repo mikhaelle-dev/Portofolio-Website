@@ -13,22 +13,13 @@
     <title>Mikhael Rakarenzo</title>
 
     <!-- Dependencies -->
-    <link rel="preconnect" href="https://lh3.googleusercontent.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-
-    <link rel="preload" as="image" href="https://lh3.googleusercontent.com/aida-public/AB6AXuBrV8QIK1UiPKTP8xH_BfChOWlmgk0tuHzTTr852aKwOEEE0_f9h_mtGwjsd_5nkxpyFUgpBFiScRyTmlJ3O18oQTs8PgWahQVFOaKPQ9Jl1TduL7WdqlRWmx_1jWj6D4wwlYJC2_Vical-DDxVrS1E1DnWrRE0OvgIAt4op9MMYRg0CyUxNSvc0EtXFGFaStt1aJSSAxcUGYiFau6OPQupQdkMCNMktQBen1uafbq5QfSm9sPt7mJCirfCnL4lnn5R_5diMM1FQJd8" fetchpriority="high" />
+    <link rel="preload" as="image" href="src/assets/hero-portrait-460.jpg" fetchpriority="high" />
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="src/css/tailwind-built.css">
-    <link rel="stylesheet" href="src/css/style.css">
-    <link rel="stylesheet" href="src/css/animations.css">
+    <link rel="preload" href="src/css/tailwind-built.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="src/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="src/css/animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="src/css/tailwind-built.css"><link rel="stylesheet" href="src/css/style.css"><link rel="stylesheet" href="src/css/animations.css"></noscript>
 
     <!-- Custom Scripts (Deferred) -->
     <script src="src/js/translations.js" defer></script>
@@ -45,12 +36,7 @@
     <!-- Top-Left Capsule -->
     <div class="fixed top-8 left-8 z-50 hidden md:block floating">
         <div class="liquid-glass !bg-white/40 dark:!bg-slate-900/40 rounded-full px-5 py-2.5 flex items-center gap-3">
-            <svg class="text-primary dark:text-primary text-lg sparkle-anim" width="1em" height="1em"
-                viewBox="0 0 24 24" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path fill="currentColor"
-                    d="m19 9l-1.25-2.75L15 5l2.75-1.25L19 1l1.25 2.75L23 5l-2.75 1.25L19 9Zm0 14l-1.25-2.75L15 19l2.75-1.25L19 15l1.25 2.75L23 19l-2.75 1.25L19 23ZM9 20l-2.5-5.5L1 12l5.5-2.5L9 4l2.5 5.5L17 12l-5.5 2.5L9 20Z" />
-            </svg>
+            <span class="brand-sparkle-icon sparkle-anim" aria-hidden="true"></span>
             <span class="font-bold text-label-md text-on-surface dark:text-white tracking-widest uppercase">Mikhael
                 Rakarenzo</span>
         </div>
@@ -103,11 +89,12 @@
                 <div
                     class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-primary-fixed-dim/30 dark:bg-primary/10 rounded-full blur-[100px] -z-10">
                 </div>
-                <h1 class="font-display-2xl text-display-2xl leading-[1.1]">
+                <h1 class="hero-title font-display-2xl text-display-2xl leading-[1.1]">
                     <span class="block text-on-surface dark:text-white" data-i18n="hero.greeting">Hello, i'm</span>
-                    <span
-                        class="block bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-container dark:from-primary dark:to-primary-container"
-                        data-i18n="hero.name">Mikhael Rakarenzo</span>
+                    <span class="block hero-name bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-container dark:from-primary dark:to-primary-container">
+                        <span class="block" data-i18n="hero.nameFirst">Mikhael</span>
+                        <span class="block" data-i18n="hero.nameLast">Rakarenzo</span>
+                    </span>
                 </h1>
                 <p class="font-body-lg text-body-lg text-on-surface-variant dark:text-gray-400 max-w-lg leading-relaxed"
                     data-i18n="hero.desc">
@@ -160,10 +147,10 @@
                                         src="src/assets/cisco.svg" alt="Cisco">NetAcad Cisco</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/pngegg.png" class="scale-[1.3]" alt="GNS3">GNS3</span>
+                                        src="src/assets/gns3-35.png" class="scale-[1.3]" alt="GNS3" width="35" height="35">GNS3</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/app.ico" alt="PacketTracer">Packet Tracer</span>
+                                        src="src/assets/packettracer-35.png" alt="PacketTracer" width="35" height="35">Packet Tracer</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
                                         src="src/assets/wireshark.svg" alt="Wireshark">Wireshark</span>
@@ -173,10 +160,10 @@
                                         src="src/assets/cisco.svg" alt="Cisco">NetAcad Cisco</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/pngegg.png" class="scale-[1.3]" alt="GNS3">GNS3</span>
+                                        src="src/assets/gns3-35.png" class="scale-[1.3]" alt="GNS3" width="35" height="35">GNS3</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/app.ico" alt="PacketTracer">Packet Tracer</span>
+                                        src="src/assets/packettracer-35.png" alt="PacketTracer" width="35" height="35">Packet Tracer</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
                                         src="src/assets/wireshark.svg" alt="Wireshark">Wireshark</span>
@@ -192,7 +179,7 @@
                                         src="src/assets/claude.svg" alt="Claude">Claude AI</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/stich.png" alt="Stitch">Google Stitch</span>
+                                        src="src/assets/stich-35.png" alt="Stitch" width="35" height="35">Google Stitch</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
                                         src="src/assets/gemini.svg" alt="Antigravity">Antigravity</span>
@@ -205,7 +192,7 @@
                                         src="src/assets/claude.svg" alt="Claude">Claude AI</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/stich.png" alt="Stitch">Google Stitch</span>
+                                        src="src/assets/stich-35.png" alt="Stitch" width="35" height="35">Google Stitch</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
                                         src="src/assets/gemini.svg" alt="Antigravity">Antigravity</span>
@@ -222,7 +209,7 @@
                         <button
                             class="liquid-glass text-on-surface dark:text-white font-bold text-label-md px-8 py-3 rounded-full hover:scale-105 transition-all duration-300 flex items-center gap-2"
                             data-i18n="hero.downloadCv">
-                            <span class="material-symbols-outlined text-[20px]">download</span>
+                            <span class="material-symbols-outlined text-[20px]">↓</span>
                             Download CV
                         </button>
                     </div>
@@ -232,7 +219,7 @@
             <div
                 class="flex-1 profile-container relative flex flex-col items-center lg:items-start z-10 floating group profile-lower">
                 <div
-                    class="profile-card liquid-glass relative w-[460px] h-[560px] rounded-[52px] border-2 dashed p-4 flex items-center justify-center">
+                    class="profile-card hero-profile-card liquid-glass relative w-[440px] h-[570px] rounded-[52px] border-2 dashed p-4 flex items-center justify-center">
                     <!-- Subtle Inner Glow -->
                     <div
                         class="absolute inset-4 bg-gradient-to-tr from-primary/10 to-transparent dark:from-primary/10 rounded-[44px] -z-10">
@@ -247,8 +234,8 @@
                     <div class="relative w-full h-full rounded-[44px] overflow-hidden z-10">
                         <img alt="Fadhil Gani Portrait"
                             class="w-full h-full object-cover object-top transition-all duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-                            width="460" height="560" decoding="async" fetchpriority="high"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrV8QIK1UiPKTP8xH_BfChOWlmgk0tuHzTTr852aKwOEEE0_f9h_mtGwjsd_5nkxpyFUgpBFiScRyTmlJ3O18oQTs8PgWahQVFOaKPQ9Jl1TduL7WdqlRWmx_1jWj6D4wwlYJC2_Vical-DDxVrS1E1DnWrRE0OvgIAt4op9MMYRg0CyUxNSvc0EtXFGFaStt1aJSSAxcUGYiFau6OPQupQdkMCNMktQBen1uafbq5QfSm9sPt7mJCirfCnL4lnn5R_5diMM1FQJd8" />
+                            width="440" height="570" decoding="async" fetchpriority="high"
+                            src="src/assets/hero-portrait-460.jpg" />
                         <!-- Subtle Overlay Gradient -->
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-primary/20 dark:from-primary/10 to-transparent pointer-events-none transition-colors duration-500 group-hover:from-primary/35 dark:group-hover:from-primary/20">
@@ -257,7 +244,7 @@
                 </div>
 
                 <!-- Theme Color Switcher -->
-                <div class="mt-8 w-[460px] max-w-full flex justify-center">
+                <div class="hero-color-switcher mt-8 w-[440px] max-w-full flex justify-center">
                     <div
                         class="flex gap-4 p-4 liquid-glass rounded-full border-dashed animate-in fade-in slide-in-from-bottom-4 duration-1000">
                         <button
@@ -287,7 +274,7 @@
             <a class="relative z-10 bg-background dark:bg-[#030712] border border-outline-variant/30 dark:border-white/10 flex items-center gap-3 px-6 py-2 rounded-full text-on-surface-variant dark:text-gray-400 font-bold text-[10px] uppercase tracking-widest hover:scale-105 transition-transform"
                 data-i18n="scroll.down" href="#proyek">
                 SEE MY CONTRIBUTION
-                <span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+                <span class="material-symbols-outlined text-[14px]">↓</span>
             </a>
         </div>
 
@@ -375,7 +362,7 @@
                     rel="noopener noreferrer" aria-label="Compose email in Gmail">
                     <div
                         class="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-3xl">mail</span>
+                        <img class="contact-logo" src="src/assets/gmail.svg" alt="Gmail logo" width="36" height="36" loading="lazy" decoding="async">
                     </div>
                     <span class="font-bold text-xs tracking-widest uppercase dark:text-white">Gmail</span>
                 </a>
@@ -384,7 +371,7 @@
                     aria-label="GitHub">
                     <div
                         class="w-16 h-16 rounded-full bg-slate-900/10 dark:bg-white/10 flex items-center justify-center text-on-surface dark:text-white group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-3xl">code</span>
+                        <img class="contact-logo" src="src/assets/github.svg" alt="GitHub logo" width="36" height="36" loading="lazy" decoding="async">
                     </div>
                     <span class="font-bold text-xs tracking-widest uppercase dark:text-white">GitHub</span>
                 </a>
@@ -393,7 +380,7 @@
                     rel="noopener noreferrer" aria-label="LinkedIn">
                     <div
                         class="w-16 h-16 rounded-full bg-[#0077B5]/10 flex items-center justify-center text-[#0077B5] group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-3xl">person</span>
+                        <img class="contact-logo" src="src/assets/linkedin.svg" alt="LinkedIn logo" width="36" height="36" loading="lazy" decoding="async">
                     </div>
                     <span class="font-bold text-xs tracking-widest uppercase dark:text-white">LinkedIn</span>
                 </a>
@@ -402,7 +389,7 @@
                     rel="noopener noreferrer" aria-label="Instagram">
                     <div
                         class="w-16 h-16 rounded-full bg-[#E4405F]/10 flex items-center justify-center text-[#E4405F] group-hover:scale-110 transition-transform">
-                        <span class="material-symbols-outlined text-3xl">photo_camera</span>
+                        <img class="contact-logo" src="src/assets/instagram.svg" alt="Instagram logo" width="36" height="36" loading="lazy" decoding="async">
                     </div>
                     <span class="font-bold text-xs tracking-widest uppercase dark:text-white">Instagram</span>
                 </a>
@@ -414,12 +401,7 @@
     <div class="md:hidden mobile-topbar fixed inset-x-0 top-4 z-50 px-4">
         <div class="flex items-center justify-between gap-3">
             <div class="liquid-glass !bg-white/30 dark:!bg-slate-900/30 rounded-full px-4 py-2 flex items-center gap-3">
-                <svg class="text-primary dark:text-primary text-lg sparkle-anim" width="1em" height="1em"
-                    viewBox="0 0 24 24" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 0h24v24H0z" fill="none" />
-                    <path fill="currentColor"
-                        d="m19 9l-1.25-2.75L15 5l2.75-1.25L19 1l1.25 2.75L23 5l-2.75 1.25L19 9Zm0 14l-1.25-2.75L15 19l2.75-1.25L19 15l1.25 2.75L23 19l-2.75 1.25L19 23ZM9 20l-2.5-5.5L1 12l5.5-2.5L9 4l2.5 5.5L17 12l-5.5 2.5L9 20Z" />
-                </svg>
+                <span class="brand-sparkle-icon sparkle-anim" aria-hidden="true"></span>
                 <span
                     class="font-bold text-xs sm:text-sm text-on-surface dark:text-white tracking-widest uppercase">Mikhael
                     Rakarenzo</span>
@@ -452,25 +434,25 @@
     <nav class="mobile-bottom-nav md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-2">
         <div
             class="flex justify-between gap-2 max-w-3xl mx-auto bg-white/90 dark:bg-slate-900/90 border border-outline-variant/20 dark:border-white/10 rounded-full px-4 py-3 shadow-2xl backdrop-blur-xl">
-            <a href="#hero" data-i18n="nav.home"
+            <a href="#hero"
                 class="mobile-nav-item active flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
-                <span class="material-symbols-outlined text-2xl">home</span>
-                <span>Home</span>
+                <span class="mobile-nav-icon mobile-nav-icon-home" aria-hidden="true"></span>
+                <span data-i18n="nav.home">Home</span>
             </a>
-            <a href="#proyek" data-i18n="nav.project"
+            <a href="#proyek"
                 class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
-                <span class="material-symbols-outlined text-2xl">category</span>
-                <span>Projects</span>
+                <span class="mobile-nav-icon mobile-nav-icon-project" aria-hidden="true"></span>
+                <span data-i18n="nav.project">Projects</span>
             </a>
-            <a href="#sertifikat" data-i18n="nav.cert"
+            <a href="#sertifikat"
                 class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
-                <span class="material-symbols-outlined text-2xl">verified</span>
-                <span>Certificates</span>
+                <span class="mobile-nav-icon mobile-nav-icon-cert" aria-hidden="true"></span>
+                <span data-i18n="nav.cert">Certificates</span>
             </a>
-            <a href="#tentang" data-i18n="nav.about"
+            <a href="#tentang"
                 class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
-                <span class="material-symbols-outlined text-2xl">person</span>
-                <span>About</span>
+                <span class="mobile-nav-icon mobile-nav-icon-about" aria-hidden="true"></span>
+                <span data-i18n="nav.about">About</span>
             </a>
         </div>
     </nav>
@@ -483,7 +465,7 @@
             id="modal-content">
             <button id="close-modal"
                 class="absolute top-6 right-6 w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-on-surface dark:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-colors z-50">
-                <span class="material-symbols-outlined">close</span>
+                <span class="material-symbols-outlined">×</span>
             </button>
             <div class="overflow-y-auto hide-scrollbar p-8 md:p-12 flex-1">
                 <div id="modal-body" class="space-y-8">
@@ -499,7 +481,7 @@
             <div class="flex flex-col items-center gap-0.5 text-center">
                 <div
                     class="font-display-xl text-headline-md font-black tracking-tighter text-on-surface dark:text-white flex items-center gap-3">
-                    <svg class="text-primary text-2xl" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"
+                    <svg class="text-primary text-2xl sparkle-anim" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true"
                         role="img" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 0h24v24H0z" fill="none" />
                         <path fill="currentColor"

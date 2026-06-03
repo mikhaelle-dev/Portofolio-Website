@@ -1,3 +1,7 @@
+:root {
+    --primary: #8fb060;
+}
+
 .noise-overlay {
     position: fixed;
     top: 0;
@@ -59,6 +63,18 @@ body {
     animation: sparkle 2s infinite ease-in-out;
 }
 
+.brand-sparkle-icon {
+    display: inline-block;
+    width: 1.125rem;
+    height: 1.125rem;
+    flex: 0 0 1.125rem;
+    color: var(--primary, #8fb060) !important;
+    background-color: var(--primary, #8fb060) !important;
+    -webkit-mask: url("../assets/material-symbols--auto-awesome.svg") center / contain no-repeat;
+    mask: url("../assets/material-symbols--auto-awesome.svg") center / contain no-repeat;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
 .liquid-glass,
 .card-layered {
     backdrop-filter: blur(40px) saturate(180%);
@@ -94,10 +110,10 @@ body {
 .nav-pill {
     backdrop-filter: blur(40px) saturate(200%);
     -webkit-backdrop-filter: blur(40px) saturate(200%);
-    background: rgba(252, 248, 251, 0.6);
+    background: rgba(252, 248, 251, 0.72);
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
     border-style: solid !important;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
     position: relative;
     transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
@@ -212,10 +228,15 @@ footer {
 
 .nav-backdrop {
     position: absolute;
-    background: rgba(143, 176, 96, 0.1);
-    border: 1px solid rgba(143, 176, 96, 0.2);
+    top: 0;      /* tambah ini */
+    left: 0;     /* tambah ini */
+    background: linear-gradient(180deg, rgba(143, 176, 96, 0.14), rgba(143, 176, 96, 0.08));
+    border: 1px solid rgba(143, 176, 96, 0.26);
     border-radius: 9999px;
     z-index: 10;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.55),
+        0 6px 18px rgba(143, 176, 96, 0.12);
     /* Only width/height/transform have transition - opacity is controlled via JS */
     transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1),
         height 0.4s cubic-bezier(0.19, 1, 0.22, 1),
@@ -241,20 +262,30 @@ header.fixed.top-8.right-8 {
 
 .fixed.top-8.left-8 > .liquid-glass,
 .nav-pill {
-    min-height: 48px;
+    min-height: 54px;
 }
 
 .nav-pill {
     width: max-content;
     max-width: calc(100vw - 4rem);
     align-items: center;
+    gap: 1.35rem !important;
+    padding: 0.45rem 1.45rem !important;
 }
 
 .nav-pill nav {
     flex-wrap: nowrap;
+    gap: 0.5rem !important;
 }
 
 .nav-pill .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 5.6rem;
+    height: 2.15rem;
+    padding: 0 1.15rem !important;
+    line-height: 1;
     white-space: nowrap;
 }
 
@@ -388,6 +419,11 @@ header.fixed.top-8.right-8 {
 .profile-card {
     transition: transform 0.2s ease-out;
     transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.profile-card-touching {
+    transform: scale(1.01);
 }
 
 @keyframes borderGlow {
@@ -420,6 +456,18 @@ header.fixed.top-8.right-8 {
 
 html {
     scroll-behavior: smooth;
+}
+
+.material-symbols-outlined {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1em;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    line-height: 1;
+    font-weight: 800;
+    font-style: normal;
+    text-transform: none;
 }
 
 .marquee-container {
@@ -636,6 +684,56 @@ html {
     margin-top: 3rem;
 }
 
+@media (min-width: 1024px) {
+    #home-main {
+        max-width: 1320px;
+        padding-top: 6.25rem;
+    }
+
+    #hero {
+        align-items: flex-start;
+        gap: clamp(4rem, 7vw, 6.5rem);
+    }
+
+    .hero-title {
+        font-size: clamp(4.7rem, 6.2vw, 6.1rem);
+        line-height: 0.98;
+        letter-spacing: -0.045em;
+    }
+
+    .hero-name {
+        line-height: 1.02;
+    }
+
+    .hero-profile-card {
+        width: clamp(440px, 33vw, 490px) !important;
+        height: clamp(535px, 40vw, 590px) !important;
+    }
+
+    .hero-profile-card img {
+        transform: scale(1.08);
+        transform-origin: center top;
+    }
+
+    .hero-color-switcher {
+        width: clamp(440px, 33vw, 490px) !important;
+    }
+}
+
+.profile-container:hover .hero-profile-card img {
+    transform: scale(1.1);
+}
+
+.contact-logo {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.dark a[aria-label="GitHub"] .contact-logo {
+    filter: invert(1);
+}
+
 @media (max-width: 767px) {
 
     #home-main {
@@ -677,6 +775,12 @@ html {
         height: auto !important;
         border-radius: 28px;
         padding: 1rem;
+        transform: none !important;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .profile-card-touching {
+        transform: scale(0.985) !important;
     }
 
     .profile-lower {
@@ -740,24 +844,23 @@ html {
     }
 
     .mobile-topbar .sparkle-anim {
-        opacity: 0.8;
+        opacity: 1;
     }
 
 
 
     .mobile-bottom-nav>div {
-        gap: 0.5rem;
-        padding: 0.75rem 0.5rem !important;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(20px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        border-radius: 25px 25px 25px 25px;
-        /* TAMBAH - round corner */
+        gap: 0.35rem;
+        padding: 0.55rem 0.7rem !important;
+        min-height: 4.85rem;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(24px) saturate(170%);
+        -webkit-backdrop-filter: blur(24px) saturate(170%);
+        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.12);
+        border-radius: 1.9rem;
         width: 100%;
-        /* TAMBAH - full width */
         margin: 0;
-        /* TAMBAH - no margin */
     }
 
     .dark .mobile-bottom-nav>div {
@@ -770,19 +873,22 @@ html {
 
     .mobile-nav-item.active {
         color: var(--primary) !important;
-        background: rgba(143, 176, 96, 0.15);
-        box-shadow: inset 0 0 0 1px rgba(143, 176, 96, 0.15);
-        border-radius: 9999px;
+        background: rgba(143, 176, 96, 0.22);
+        box-shadow:
+            inset 0 0 0 1px rgba(143, 176, 96, 0.22),
+            0 8px 18px rgba(143, 176, 96, 0.12);
+        border-radius: 1.55rem;
     }
 
     .mobile-nav-item {
         flex: 1;
-        min-width: 3rem;
-        max-width: 6.5rem;
+        min-width: 3.8rem;
+        max-width: 5.8rem;
+        min-height: 3.75rem;
         color: inherit;
         text-align: center;
-        padding: 0.75rem 0.35rem !important;
-        gap: 0.35rem;
+        padding: 0.5rem 0.35rem !important;
+        gap: 0.3rem;
         display: inline-flex;
         flex-direction: column;
         align-items: center;
@@ -791,6 +897,41 @@ html {
         white-space: normal;
         font-size: 0.65rem;
         line-height: 1.2;
+    }
+
+    .mobile-nav-icon {
+        display: block;
+        width: 20px;
+        height: 20px;
+        flex: 0 0 20px;
+        opacity: 0.85;
+        color: currentColor;
+        background-color: currentColor;
+        -webkit-mask: var(--mobile-nav-icon-mask) center / contain no-repeat;
+        mask: var(--mobile-nav-icon-mask) center / contain no-repeat;
+        transition: opacity 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .mobile-nav-icon-home {
+        --mobile-nav-icon-mask: url("../assets/nav-home.svg");
+    }
+
+    .mobile-nav-icon-project {
+        --mobile-nav-icon-mask: url("../assets/nav-project.svg");
+    }
+
+    .mobile-nav-icon-cert {
+        --mobile-nav-icon-mask: url("../assets/nav-cert.svg");
+    }
+
+    .mobile-nav-icon-about {
+        --mobile-nav-icon-mask: url("../assets/nav-about.svg");
+    }
+
+    .mobile-nav-item:active .mobile-nav-icon,
+    .mobile-nav-item.active .mobile-nav-icon {
+        opacity: 1;
+        transform: translateY(-1px);
     }
 
     .mobile-nav-item:hover {
@@ -802,9 +943,9 @@ html {
 
     .mobile-nav-item span:last-child {
         display: block;
-        font-size: 0.65rem;
+        font-size: 0.58rem;
         line-height: 1.2;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.07em;
     }
 
     footer {
@@ -818,4 +959,3 @@ html {
         transform-origin: left top;
     }
 }
-

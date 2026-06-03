@@ -2,7 +2,8 @@ module.exports = {
   darkMode: 'class',
   content: [
     './index.html',
-    './src/**/*.{html,js,css}'
+    './src/**/*.html',
+    './src/**/*.js'
   ],
   theme: {
     extend: {
@@ -72,14 +73,14 @@ module.exports = {
         gutter: '24px'
       },
       fontFamily: {
-        'display-xl': ['Geist'],
-        'label-md': ['Geist'],
-        'headline-lg': ['Geist'],
-        'display-2xl': ['Geist'],
-        'body-lg': ['Inter'],
-        caption: ['Inter'],
-        'headline-md': ['Geist'],
-        'body-md': ['Inter']
+        'display-xl': ['ui-sans-serif', 'system-ui', 'sans-serif'],
+        'label-md': ['ui-sans-serif', 'system-ui', 'sans-serif'],
+        'headline-lg': ['ui-sans-serif', 'system-ui', 'sans-serif'],
+        'display-2xl': ['ui-sans-serif', 'system-ui', 'sans-serif'],
+        'body-lg': ['ui-sans-serif', 'system-ui', 'sans-serif'],
+        caption: ['ui-sans-serif', 'system-ui', 'sans-serif'],
+        'headline-md': ['ui-sans-serif', 'system-ui', 'sans-serif'],
+        'body-md': ['ui-sans-serif', 'system-ui', 'sans-serif']
       },
       fontSize: {
         'display-xl': ['56px', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '600' }],

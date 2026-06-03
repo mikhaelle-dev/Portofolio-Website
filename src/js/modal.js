@@ -22,14 +22,14 @@ function openProjectModal(data) {
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2 pt-4">
                 <div class="space-y-3 p-6 rounded-[32px] bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10">
                     <h4 class="text-on-surface dark:text-white font-bold flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary text-xl">badge</span>
+                        <span class="material-symbols-outlined text-primary text-xl">ID</span>
                         ${translations[currentLang]['modal.credentialId'] || 'Credential ID'}
                     </h4>
                     <p class="text-sm text-on-surface-variant dark:text-gray-300 leading-relaxed">${displayCredentialId}</p>
                 </div>
                 <div class="space-y-3 p-6 rounded-[32px] bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10">
                     <h4 class="text-on-surface dark:text-white font-bold flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary text-xl">description</span>
+                        <span class="material-symbols-outlined text-primary text-xl">≡</span>
                         ${translations[currentLang]['modal.certificateDescription'] || 'Certificate Description'}
                     </h4>
                     <p class="text-sm text-on-surface-variant dark:text-gray-300 leading-relaxed">${displayFullDesc}</p>
@@ -39,7 +39,7 @@ function openProjectModal(data) {
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-4">
                 <div class="space-y-6">
                     <h4 class="text-on-surface dark:text-white font-bold flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary text-xl">verified</span>
+                        <span class="material-symbols-outlined text-primary text-xl">✓</span>
                         ${translations[currentLang]['modal.contributions']}
                     </h4>
                     <ul class="space-y-3">
@@ -54,7 +54,7 @@ function openProjectModal(data) {
 
                 <div class="space-y-6">
                     <h4 class="text-on-surface dark:text-white font-bold flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary text-xl">settings</span>
+                        <span class="material-symbols-outlined text-primary text-xl">⚙</span>
                         ${translations[currentLang]['modal.implementation']}
                     </h4>
                     <ul class="space-y-3">
@@ -97,11 +97,11 @@ function openProjectModal(data) {
 
             <div class="flex flex-wrap gap-4 pt-8 border-t border-black/10 dark:border-white/10">
                 <a href="${links?.demo || '#'}" class="px-8 py-4 rounded-2xl bg-on-surface dark:bg-white text-surface dark:text-black font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2 shadow-xl">
-                    ${translations[currentLang]['modal.viewDetails']} <span class="material-symbols-outlined text-sm">arrow_outward</span>
+                    ${translations[currentLang]['modal.viewDetails']} <span class="material-symbols-outlined text-sm">↗</span>
                 </a>
                 ${isCertification ? '' : `
                 <a href="${links?.repo || '#'}" class="px-8 py-4 rounded-2xl bg-black/5 dark:bg-white/10 text-on-surface dark:text-white font-bold text-sm border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 transition-colors flex items-center gap-2">
-                    ${translations[currentLang]['modal.repository']} <span class="material-symbols-outlined text-sm">code</span>
+                    ${translations[currentLang]['modal.repository']} <span class="material-symbols-outlined text-sm">&lt;/&gt;</span>
                 </a>
                 `}
             </div>

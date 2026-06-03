@@ -5,14 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Projects | Mikhael Raka</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="css/tailwind-built.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <link rel="preload" href="css/tailwind-built.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="css/animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/tailwind-built.css"><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/animations.css"></noscript>
     
     <script src="js/translations.js" defer></script>
     <script src="js/data.js" defer></script>
@@ -26,10 +22,7 @@
     <!-- Navigation (Desktop + Mobile responsive) -->
     <div class="fixed top-8 left-8 z-50 hidden md:block">
         <div class="liquid-glass !bg-white/40 dark:!bg-slate-900/40 rounded-full px-5 py-2.5 flex items-center gap-3">
-            <svg class="text-primary dark:text-primary text-lg sparkle-anim" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path fill="currentColor" d="m19 9l-1.25-2.75L15 5l2.75-1.25L19 1l1.25 2.75L23 5l-2.75 1.25L19 9Zm0 14l-1.25-2.75L15 19l2.75-1.25L19 15l1.25 2.75L23 19l-2.75 1.25L19 23ZM9 20l-2.5-5.5L1 12l5.5-2.5L9 4l2.5 5.5L17 12l-5.5 2.5L9 20Z" />
-            </svg>
+            <span class="brand-sparkle-icon sparkle-anim" aria-hidden="true"></span>
             <span class="font-bold text-label-md text-on-surface dark:text-white tracking-widest uppercase">Mikhael Rakarenzo</span>
         </div>
     </div>
@@ -73,10 +66,7 @@
     <div class="md:hidden mobile-topbar fixed inset-x-0 top-4 z-50 px-4">
         <div class="flex items-center justify-between gap-3">
             <div class="liquid-glass !bg-white/30 dark:!bg-slate-900/30 rounded-full px-4 py-2 flex items-center gap-3">
-                <svg class="text-primary dark:text-primary text-lg sparkle-anim" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 0h24v24H0z" fill="none" />
-                    <path fill="currentColor" d="m19 9l-1.25-2.75L15 5l2.75-1.25L19 1l1.25 2.75L23 5l-2.75 1.25L19 9Zm0 14l-1.25-2.75L15 19l2.75-1.25L19 15l1.25 2.75L23 19l-2.75 1.25L19 23ZM9 20l-2.5-5.5L1 12l5.5-2.5L9 4l2.5 5.5L17 12l-5.5 2.5L9 20Z" />
-                </svg>
+                <span class="brand-sparkle-icon sparkle-anim" aria-hidden="true"></span>
                 <span class="font-bold text-xs sm:text-sm text-on-surface dark:text-white tracking-widest uppercase">Mikhael Rakarenzo</span>
             </div>
             <div class="flex items-center gap-2">
@@ -97,21 +87,21 @@
     <!-- Mobile Bottom Navigation -->
     <nav class="mobile-bottom-nav md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-2">
         <div class="flex justify-between gap-2 max-w-3xl mx-auto bg-white/90 dark:bg-slate-900/90 border border-outline-variant/20 dark:border-white/10 rounded-full px-4 py-3 shadow-2xl backdrop-blur-xl">
-            <a href="../index.html" data-i18n="nav.home" class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
-                <span class="material-symbols-outlined text-2xl">home</span>
-                <span>Home</span>
+            <a href="../index.html" class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+                <span class="mobile-nav-icon mobile-nav-icon-home" aria-hidden="true"></span>
+                <span data-i18n="nav.home">Home</span>
             </a>
-            <a href="projects.html" data-i18n="nav.project" class="mobile-nav-item active flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
-                <span class="material-symbols-outlined text-2xl">category</span>
-                <span>Projects</span>
+            <a href="projects.html" class="mobile-nav-item active flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+                <span class="mobile-nav-icon mobile-nav-icon-project" aria-hidden="true"></span>
+                <span data-i18n="nav.project">Projects</span>
             </a>
-            <a href="certificates.html" data-i18n="nav.cert" class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
-                <span class="material-symbols-outlined text-2xl">verified</span>
-                <span>Certificates</span>
+            <a href="certificates.html" class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+                <span class="mobile-nav-icon mobile-nav-icon-cert" aria-hidden="true"></span>
+                <span data-i18n="nav.cert">Certificates</span>
             </a>
-<a href="../index.html#tentang" data-i18n="nav.about" class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
-                <span class="material-symbols-outlined text-2xl">person</span>
-                <span>About</span>
+<a href="../index.html#tentang" class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+                <span class="mobile-nav-icon mobile-nav-icon-about" aria-hidden="true"></span>
+                <span data-i18n="nav.about">About</span>
             </a>
         </div>
     </nav>
@@ -145,7 +135,7 @@
             id="modal-content">
             <button id="close-modal"
                 class="absolute top-6 right-6 w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-on-surface dark:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-colors z-50">
-                <span class="material-symbols-outlined">close</span>
+                <span class="material-symbols-outlined">×</span>
             </button>
             <div class="overflow-y-auto hide-scrollbar p-8 md:p-12 flex-1">
                 <div id="modal-body" class="space-y-8"></div>
@@ -176,7 +166,7 @@
                             <div class="px-2 pb-2 flex-1 flex flex-col">
                                 <div class="flex justify-between items-start mb-2">
                                     <h3 class="font-bold text-xl text-on-surface dark:text-white leading-tight group-hover:text-primary transition-colors origin-left">${p.title}</h3>
-                                    <span class="material-symbols-outlined text-primary text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">north_east</span>
+                                    <span class="material-symbols-outlined text-primary text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
                                 </div>
                                 <p class="font-medium text-sm text-on-surface-variant dark:text-gray-400 line-clamp-2 leading-relaxed">${displayDesc}</p>
                                 <div class="mt-auto pt-4 flex justify-between items-center text-[10px] font-bold text-on-surface-variant dark:text-gray-500 uppercase tracking-widest border-t border-black/5 dark:border-white/5">
@@ -229,7 +219,7 @@
             <div class="flex flex-col items-center gap-4">
                 <div
                     class="font-display-xl text-headline-md font-black tracking-tighter text-on-surface dark:text-white flex items-center gap-3">
-                    <svg class="text-primary text-2xl" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="text-primary text-2xl sparkle-anim" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 0h24v24H0z" fill="none" />
                         <path fill="currentColor" d="m19 9l-1.25-2.75L15 5l2.75-1.25L19 1l1.25 2.75L23 5l-2.75 1.25L19 9Zm0 14l-1.25-2.75L15 19l2.75-1.25L19 15l1.25 2.75L23 19l-2.75 1.25L19 23ZM9 20l-2.5-5.5L1 12l5.5-2.5L9 4l2.5 5.5L17 12l-5.5 2.5L9 20Z" />
                     </svg>
