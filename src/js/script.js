@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.innerHTML = `
                     <div class="rounded-[2rem] overflow-hidden mb-6 aspect-[4/3] p-1">
                         <img src="${cert.img}"
-                             class="w-full h-full object-contain rounded-[1.75rem] opacity-90 group-hover:opacity-100 transition-opacity group-hover:scale-105 transition-transform duration-700"
+                             class="w-full h-full object-contain rounded-[1.75rem] opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                              loading="lazy" decoding="async" fetchpriority="low">
                     </div>
                     <div class="px-2 pb-2 flex-1 flex flex-col">
