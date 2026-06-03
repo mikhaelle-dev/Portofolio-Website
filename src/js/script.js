@@ -267,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
         navBackdrop.style.opacity = '1';
         navBackdrop.style.width = `${rect.width}px`;
         navBackdrop.style.height = `${rect.height}px`;
-        navBackdrop.style.transform = `translateX(${rect.left - parentRect.left - 16}px)`;
+        navBackdrop.style.transform = `translateX(${rect.left - parentRect.left}px)`;
     }
 
     let isClickScrolling = false;

@@ -109,9 +109,7 @@ function openProjectModal(data) {
     `;
 
     modal.classList.add('open');
-    // Biarkan scroll modal saja (ada overflow-y-auto pada container modal).
-    // Jangan langsung "hidden" body karena di beberapa device bisa bikin page stuck.
-    document.body.style.overflow = '';
+    document.body.style.overflow = 'hidden';
 
     // --- Image lightbox: klik gambar di dalam modal untuk membuka zoom view ---
     function createImageLightbox(src, alt) {
@@ -124,7 +122,7 @@ function openProjectModal(data) {
         wrapper.innerHTML = `
             <div class="image-lightbox-overlay"></div>
             <div class="image-lightbox-content" role="dialog" aria-modal="true">
-                <button id="image-lightbox-close" class="image-lightbox-close" aria-label="Close image">✕</button>
+                <button id="image-lightbox-close" class="image-lightbox-close" aria-label="Close image">&times;</button>
                 <img src="${src}" alt="${alt || ''}" />
             </div>
         `;
@@ -139,7 +137,7 @@ function openProjectModal(data) {
         function removeLightbox() {
             const el = document.getElementById('image-lightbox');
             if (el) el.remove();
-            document.body.style.overflow = '';
+            document.body.style.overflow = modal.classList.contains('open') ? 'hidden' : '';
             window.removeEventListener('keydown', keyHandler);
         }
 
@@ -164,6 +162,7 @@ function openProjectModal(data) {
 
 function closeProjectModal() {
     if (!modal) return;
+    document.getElementById('image-lightbox')?.remove();
     modal.classList.remove('open');
     document.body.style.overflow = '';
 }

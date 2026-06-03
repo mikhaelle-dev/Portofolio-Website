@@ -157,10 +157,9 @@ body {
 }
 
 /* Ensure all major content is above the canvas */
-header,
+header:not(.fixed),
 main,
-footer,
-.fixed {
+footer {
     position: relative;
     z-index: 1;
 }
@@ -226,6 +225,39 @@ footer,
     pointer-events: none;
 }
 
+.fixed {
+    position: fixed;
+}
+
+.fixed.top-8.left-8,
+header.fixed.top-8.right-8 {
+    z-index: 80;
+}
+
+header.fixed.top-8.right-8 {
+    width: auto;
+    max-width: calc(100vw - 2rem);
+}
+
+.fixed.top-8.left-8 > .liquid-glass,
+.nav-pill {
+    min-height: 48px;
+}
+
+.nav-pill {
+    width: max-content;
+    max-width: calc(100vw - 4rem);
+    align-items: center;
+}
+
+.nav-pill nav {
+    flex-wrap: nowrap;
+}
+
+.nav-pill .nav-link {
+    white-space: nowrap;
+}
+
 .dark .nav-backdrop {
     background: rgba(184, 212, 142, 0.15);
     border: 1px solid rgba(184, 212, 142, 0.3);
@@ -248,6 +280,28 @@ footer,
 
 #project-modal.open #modal-content {
     transform: scale(1);
+}
+
+#project-modal {
+    isolation: isolate;
+}
+
+#modal-content {
+    border-radius: 32px !important;
+    max-height: min(90vh, 820px);
+}
+
+#modal-body {
+    overscroll-behavior: contain;
+}
+
+#close-modal {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+#modal-body img {
+    max-height: 58vh;
 }
 
 /* Image lightbox (opened when clicking modal image) */
@@ -764,5 +818,4 @@ html {
         transform-origin: left top;
     }
 }
-
 
