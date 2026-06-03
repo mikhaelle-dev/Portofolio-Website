@@ -306,8 +306,9 @@ document.addEventListener('DOMContentLoaded', () => {
             rect = container.getBoundingClientRect();
         };
 
-        recalc();
-        window.addEventListener('resize', recalc, { passive: true });
+        window.addEventListener('resize', () => {
+            rect = null;
+        }, { passive: true });
 
         const apply = () => {
             rafId = null;
@@ -320,8 +321,13 @@ document.addEventListener('DOMContentLoaded', () => {
             profileCard.style.transform = `rotateY(${x * 4}deg) rotateX(${-y * 4}deg) scale(1.015)`;
         };
 
+        container.addEventListener('mouseenter', () => {
+            if (canTiltProfile()) window.requestAnimationFrame(recalc);
+        }, { passive: true });
+
         container.addEventListener('mousemove', (e) => {
             if (!canTiltProfile()) return;
+            if (!rect) recalc();
             pendingEvt = e;
             if (rafId) return;
             rafId = window.requestAnimationFrame(apply);
