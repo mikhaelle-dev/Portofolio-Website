@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Mikhael Rakarenzo</title>
+
+    <!-- Dependencies -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/animations.css">
+
+    <!-- Custom Scripts (Deferred) -->
+    <script src="src/js/translations.js" defer></script>
+    <script src="src/js/data.js" defer></script>
+    <script src="src/js/modal.js" defer></script>
+    <script src="src/js/script.js" defer></script>
+</head>
+
+<body class="antialiased overflow-x-hidden transition-colors duration-1000">
+    <!-- Minimal Grid Background -->
+    <div id="grid-bg" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- Top-Left Capsule -->
+    <div class="fixed top-8 left-8 z-50 floating">
+        <div class="liquid-glass !bg-white/40 dark:!bg-slate-900/40 rounded-full px-5 py-2.5 flex items-center gap-3">
+            <svg class="text-primary dark:text-primary text-lg sparkle-anim" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path fill="currentColor" d="m19 9l-1.25-2.75L15 5l2.75-1.25L19 1l1.25 2.75L23 5l-2.75 1.25L19 9Zm0 14l-1.25-2.75L15 19l2.75-1.25L19 15l1.25 2.75L23 19l-2.75 1.25L19 23ZM9 20l-2.5-5.5L1 12l5.5-2.5L9 4l2.5 5.5L17 12l-5.5 2.5L9 20Z" />
+            </svg>
+            <span class="font-bold text-label-md text-on-surface dark:text-white tracking-widest uppercase">Mikhael
+                Rakarenzo</span>
+        </div>
+    </div>
+
+    <!-- Top Navigation - Liquid Glass Pill -->
+    <header class="fixed top-8 right-8 z-50 w-auto hidden md:block">
+        <div class="nav-pill rounded-full px-4 py-2 flex items-center gap-2 relative overflow-hidden" id="main-nav">
+            <div class="nav-backdrop" id="nav-backdrop"></div>
+            <nav class="flex gap-1 items-center relative z-20">
+                <a class="nav-link px-5 py-2 rounded-full text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary transition-all text-[11px] font-bold uppercase tracking-widest active-nav"
+                    data-i18n="nav.home" href="#hero">Home</a>
+                <a class="nav-link px-5 py-2 rounded-full text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary transition-all text-[11px] font-bold uppercase tracking-widest"
+                    data-i18n="nav.project" href="#proyek">Projects</a>
+                <a class="nav-link px-5 py-2 rounded-full text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary transition-all text-[11px] font-bold uppercase tracking-widest"
+                    data-i18n="nav.cert" href="#sertifikat">Certificates</a>
+                <a class="nav-link px-5 py-2 rounded-full text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary transition-all text-[11px] font-bold uppercase tracking-widest"
+                    data-i18n="nav.about" href="#tentang">About</a>
+            </nav>
+            <div
+                class="flex gap-4 items-center border-l border-outline-variant/30 dark:border-white/10 pl-6 relative z-20">
+                <button class="theme-toggle-btn relative js-theme-toggle" id="theme-toggle" title="Toggle Theme">
+                    <div
+                        class="theme-icon-wrap overflow-hidden relative w-[18px] h-[18px] flex items-center justify-center">
+                        <img id="theme-icon" class="js-theme-icon w-full h-full object-contain" src="src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" data-dark-src="src/assets/dark_mode_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg" data-light-src="src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Theme icon" />
+                    </div>
+                </button>
+                <button
+                    class="hover:scale-125 transition-transform flex items-center gap-1 rounded-full px-3 py-1 js-lang-toggle"
+                    id="lang-toggle" title="Change Language">
+                    <img class="js-lang-icon w-[16px] h-[16px]" src="src/assets/language%20black.svg" data-dark-src="src/assets/language%20white.svg" data-light-src="src/assets/language%20black.svg" alt="Language icon" />
+                    <span class="text-xs font-bold text-on-surface-variant dark:text-primary">EN</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="home-main" class="max-w-container-max mx-auto px-8 pt-32 pb-48 relative">
+        <!-- Hero Section -->
+        <section class="flex flex-col lg:flex-row items-start justify-between gap-xl py-xl min-h-[85vh] reveal-section"
+            id="hero">
+            <div class="flex-1 space-y-8 z-10 relative">
+                <div
+                    class="absolute -top-32 -left-32 w-[500px] h-[500px] bg-primary-fixed-dim/30 dark:bg-primary/10 rounded-full blur-[100px] -z-10">
+                </div>
+                <h1 class="font-display-2xl text-display-2xl leading-[1.1]">
+                    <span class="block text-on-surface dark:text-white" data-i18n="hero.greeting">Hello, i'm</span>
+                    <span
+                        class="block bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-container dark:from-primary dark:to-primary-container"
+                        data-i18n="hero.name">Mikhael Rakarenzo</span>
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant dark:text-gray-400 max-w-lg leading-relaxed"
+                    data-i18n="hero.desc">
+                    A Networking and Web Development enthusiast from Indonesia, interested in Network Engineering,
+                    Front-End Development, Network Security, and Network Operations Center.
+                </p>
+                <div class="pt-4 space-y-sm w-full max-w-[600px]">
+                    <h3 class="font-headline-md text-body-md font-bold text-on-surface dark:text-white mb-4"
+                        data-i18n="hero.tech">Technologies I use:</h3>
+                    <div class="space-y-4 w-full max-w-[700px]">
+                        <!-- Row 1: Left -->
+                        <div
+                            class="marquee-container w-full [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
+                            <div class="marquee-content flex gap-3 py-2">
+                                <!-- Group 1 -->
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/python/3776AB" alt="Python">Python</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JS">JavaScript</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg"
+                                        alt="CSS">CSS</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5">HTML5</span>
+                                <!-- Group 2 (Duplicate for seamless loop) -->
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/python/3776AB" alt="Python">Python</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JS">JavaScript</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg"
+                                        alt="CSS">CSS</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5">HTML5</span>
+                            </div>
+                        </div>
+                        <!-- Row 2: Right -->
+                        <div
+                            class="marquee-container w-full [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
+                            <div class="marquee-content-reverse flex gap-3 py-2">
+                                <!-- Group 1 -->
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/cisco/005073" alt="Cisco">NetAcad Cisco</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://i.pinimg.com/736x/68/5b/4c/685b4c65372d5274ba62e65d6ef1767e.jpg"
+                                        class="scale-[1.3]" alt="GNS3">GNS3</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://hurbad.com/wp-content/uploads/2021/12/Cisco-Packet-Tracer.png"
+                                        alt="PacketTracer">Packet Tracer</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/wireshark/167EBE"
+                                        alt="Wireshark">Wireshark</span>
+                                <!-- Group 2 (Duplicate for seamless loop) -->
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/cisco/005073" alt="Cisco">NetAcad Cisco</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://i.pinimg.com/736x/68/5b/4c/685b4c65372d5274ba62e65d6ef1767e.jpg"
+                                        class="scale-[1.3]" alt="GNS3">GNS3</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://hurbad.com/wp-content/uploads/2021/12/Cisco-Packet-Tracer.png"
+                                        alt="PacketTracer">Packet Tracer</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/wireshark/167EBE"
+                                        alt="Wireshark">Wireshark</span>
+                            </div>
+                        </div>
+                        <!-- Row 3: Left -->
+                        <div
+                            class="marquee-container w-full [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
+                            <div class="marquee-content flex gap-3 py-2">
+                                <!-- Group 1 -->
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/anthropic/D97757" alt="Claude">Claude AI</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://www.gstatic.com/labs-code/stitch/favicon-512x512.png"
+                                        alt="Stitch">Google Stitch</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/googlegemini/8E75FF"
+                                        alt="Antigravity">Antigravity</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/git/F05032" alt="Git">Git</span>
+                                <!-- Group 2 (Duplicate for seamless loop) -->
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/anthropic/D97757" alt="Claude">Claude AI</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://www.gstatic.com/labs-code/stitch/favicon-512x512.png"
+                                        alt="Stitch">Google Stitch</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/googlegemini/8E75FF"
+                                        alt="Antigravity">Antigravity</span>
+                                <span
+                                    class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
+                                        src="https://cdn.simpleicons.org/git/F05032" alt="Git">Git</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-10 hero-actions">
+                    <div class="flex flex-wrap gap-4">
+                        <button
+                            class="liquid-glass text-on-surface dark:text-white font-bold text-label-md px-8 py-3 rounded-full hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                            data-i18n="hero.downloadCv">
+                            <span class="material-symbols-outlined text-[20px]">download</span>
+                            Download CV
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="flex-1 profile-container relative flex flex-col items-center lg:items-start z-10 floating group profile-lower">
+                <div
+                    class="profile-card liquid-glass relative w-[460px] h-[560px] rounded-[52px] border-2 dashed p-4 flex items-center justify-center">
+                    <!-- Subtle Inner Glow -->
+                    <div
+                        class="absolute inset-4 bg-gradient-to-tr from-primary/10 to-transparent dark:from-primary/10 rounded-[44px] -z-10">
+                    </div>
+
+                    <!-- Glow Behind Card -->
+                    <div class="absolute inset-0 bg-primary/20 dark:bg-primary/20 rounded-[52px] blur-[70px] -z-20 scale-110 opacity-50 transition-colors duration-500"
+                        id="profile-glow">
+                    </div>
+
+                    <!-- Image Container -->
+                    <div class="relative w-full h-full rounded-[44px] overflow-hidden z-10">
+                        <img alt="Fadhil Gani Portrait"
+                            class="w-full h-full object-cover object-top transition-all duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrV8QIK1UiPKTP8xH_BfChOWlmgk0tuHzTTr852aKwOEEE0_f9h_mtGwjsd_5nkxpyFUgpBFiScRyTmlJ3O18oQTs8PgWahQVFOaKPQ9Jl1TduL7WdqlRWmx_1jWj6D4wwlYJC2_Vical-DDxVrS1E1DnWrRE0OvgIAt4op9MMYRg0CyUxNSvc0EtXFGFaStt1aJSSAxcUGYiFau6OPQupQdkMCNMktQBen1uafbq5QfSm9sPt7mJCirfCnL4lnn5R_5diMM1FQJd8" />
+                        <!-- Subtle Overlay Gradient -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-primary/20 dark:from-primary/10 to-transparent pointer-events-none transition-colors duration-500 group-hover:from-primary/35 dark:group-hover:from-primary/20">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Theme Color Switcher -->
+                <div class="mt-8 w-[460px] max-w-full flex justify-center">
+                    <div
+                        class="flex gap-4 p-4 liquid-glass rounded-full border-dashed animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                        <button
+                            class="theme-color-btn w-8 h-8 rounded-full border-2 border-white/20 shadow-lg transition-transform hover:scale-125 active:scale-95"
+                            style="background-color: #8FB060;" data-color="#8FB060" title="Default Green"></button>
+                        <button
+                            class="theme-color-btn w-8 h-8 rounded-full border-2 border-white/20 shadow-lg transition-transform hover:scale-125 active:scale-95"
+                            style="background-color: #9B0F06;" data-color="#9B0F06" title="Deep Red"></button>
+                        <button
+                            class="theme-color-btn w-8 h-8 rounded-full border-2 border-white/20 shadow-lg transition-transform hover:scale-125 active:scale-95"
+                            style="background-color: #186301;" data-color="#186301" title="Dark Green"></button>
+                        <button
+                            class="theme-color-btn w-8 h-8 rounded-full border-2 border-white/20 shadow-lg transition-transform hover:scale-125 active:scale-95"
+                            style="background-color: #0bdbb6;" data-color="#0bdbb6" title="Teal"></button>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <!-- Divider -->
+        <div class="flex justify-center py-16 relative">
+            <div
+                class="absolute left-0 right-0 top-1/2 h-px bg-outline-variant/20 dark:bg-white/5 border-t border-dashed">
+            </div>
+            <a class="relative z-10 bg-background dark:bg-[#030712] border border-outline-variant/30 dark:border-white/10 flex items-center gap-3 px-6 py-2 rounded-full text-on-surface-variant dark:text-gray-400 font-bold text-[10px] uppercase tracking-widest hover:scale-105 transition-transform"
+                data-i18n="scroll.down" href="#proyek">
+                SEE MY CONTRIBUTION
+                <span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+            </a>
+        </div>
+
+        <!-- Proyek Saya Section -->
+        <section class="py-xl reveal-section" id="proyek">
+            <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <div class="flex items-center gap-4 mb-2">
+                        <h2 class="font-headline-lg text-headline-lg font-bold text-on-surface dark:text-white"
+                            data-i18n="project.title">My Projects</h2>
+                        <span
+                            class="liquid-glass px-4 py-1.5 rounded-full text-[10px] font-bold text-primary dark:text-primary uppercase tracking-widest border border-primary/20 dark:border-primary/20 hover:scale-110 transition-transform cursor-default"
+                            data-i18n="project.counter">12+
+                            Enterprise Projects</span>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant dark:text-gray-400"
+                        data-i18n="project.desc">Here are some of my recent projects. I'm always working on something
+                        new, so check back often!</p>
+                </div>
+            </div>
+            <!-- Project Grid - Populated by JS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid"></div>
+
+            <div class="mt-12 flex justify-center">
+                <a href="src/projects.html"
+                    class="bg-on-surface dark:bg-white text-surface dark:text-black font-bold text-sm px-10 py-4 rounded-full hover:scale-105 transition-all duration-300 shadow-xl inline-block"
+                    data-i18n="project.btn">View All My Projects</a>
+            </div>
+        </section>
+
+        <!-- Sertifikasi Section -->
+        <section class="py-xl reveal-section" id="sertifikat">
+            <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <div class="flex items-center gap-4 mb-2">
+                        <h2 class="font-headline-lg text-headline-lg font-bold text-on-surface dark:text-white"
+                            data-i18n="cert.title">My Certifications</h2>
+                        <span
+                            class="liquid-glass px-4 py-1.5 rounded-full text-[10px] font-bold text-primary dark:text-primary uppercase tracking-widest border border-primary/20 dark:border-primary/20 hover:scale-110 transition-transform cursor-default"
+                            data-i18n="cert.counter">10+
+                            Global Certifications</span>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant dark:text-gray-400 max-w-3xl"
+                        data-i18n="cert.desc">Professional certifications, courses and achievements that validate my
+                        technical expertise.</p>
+                </div>
+            </div>
+            <!-- Cert Grid - Populated by JS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="cert-grid"></div>
+
+            <div class="mt-12 flex justify-center">
+                <a href="src/certificates.html"
+                    class="bg-on-surface dark:bg-white text-surface dark:text-black font-bold text-sm px-10 py-4 rounded-full hover:scale-105 transition-all duration-300 shadow-xl inline-block"
+                    data-i18n="cert.btn">View All My Certificates</a>
+            </div>
+        </section>
+
+        <!-- Tentang Saya Section -->
+        <section class="py-xl reveal-section" id="tentang">
+            <h2 class="font-headline-lg text-headline-lg font-bold text-on-surface dark:text-white mb-8"
+                data-i18n="about.title">About Me</h2>
+            <div
+                class="liquid-glass card-layered p-10 md:p-16 rounded-[40px] group hover:shadow-[0_0_60px_rgba(0,255,255,0.1)] transition-shadow duration-700">
+                <p class="font-body-lg text-body-lg text-on-surface-variant dark:text-gray-300 leading-relaxed relative z-10"
+                    data-i18n="about.desc">
+                    I am a developer passionate about modern web technologies and user-centric design. With years of
+                    experience building scalable applications, I strive to combine minimalist design aesthetics with
+                    robust technical performance. My focus is on creating fluid, intuitive experiences that push the
+                    boundaries of modern web standards.
+                </p>
+            </div>
+        </section>
+
+        <!-- Kontak Section -->
+        <section class="py-xl reveal-section" id="kontak">
+            <h2 class="font-headline-lg text-headline-lg font-bold text-on-surface dark:text-white mb-4 text-center"
+                data-i18n="contact.title">
+                Let's Connect</h2>
+            <p class="text-center text-on-surface-variant dark:text-gray-400 mb-16 max-w-xl mx-auto"
+                data-i18n="contact.desc">I'm always open to
+                new collaborations or just a tech discussion.</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                <a class="liquid-glass card-layered group p-10 rounded-[32px] flex flex-col items-center gap-6 transition-all hover:-translate-y-3 hover:border-red-500/50"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=mikhaelrakarenzo@gmail.com" target="_blank"
+                    rel="noopener noreferrer" aria-label="Compose email in Gmail">
+                    <div
+                        class="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center text-red-500 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-3xl">mail</span>
+                    </div>
+                    <span class="font-bold text-xs tracking-widest uppercase dark:text-white">Gmail</span>
+                </a>
+                <a class="liquid-glass card-layered group p-10 rounded-[32px] flex flex-col items-center gap-6 transition-all hover:-translate-y-3 hover:border-gray-400/50"
+                    href="https://github.com/mikhaelle-dev" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub">
+                    <div
+                        class="w-16 h-16 rounded-full bg-slate-900/10 dark:bg-white/10 flex items-center justify-center text-on-surface dark:text-white group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-3xl">code</span>
+                    </div>
+                    <span class="font-bold text-xs tracking-widest uppercase dark:text-white">GitHub</span>
+                </a>
+                <a class="liquid-glass card-layered group p-10 rounded-[32px] flex flex-col items-center gap-6 transition-all hover:-translate-y-3 hover:border-[#0077B5]/50"
+                    href="https://www.linkedin.com/in/mikhael-rakarenzo-mahendra-a699632b9" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn">
+                    <div
+                        class="w-16 h-16 rounded-full bg-[#0077B5]/10 flex items-center justify-center text-[#0077B5] group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-3xl">person</span>
+                    </div>
+                    <span class="font-bold text-xs tracking-widest uppercase dark:text-white">LinkedIn</span>
+                </a>
+                <a class="liquid-glass card-layered group p-10 rounded-[32px] flex flex-col items-center gap-6 transition-all hover:-translate-y-3 hover:border-[#E4405F]/50"
+                    href="https://www.instagram.com/mikhaelle._?igsh=MW5vOGl2MDZwcHRhcQ==" target="_blank"
+                    rel="noopener noreferrer" aria-label="Instagram">
+                    <div
+                        class="w-16 h-16 rounded-full bg-[#E4405F]/10 flex items-center justify-center text-[#E4405F] group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-3xl">photo_camera</span>
+                    </div>
+                    <span class="font-bold text-xs tracking-widest uppercase dark:text-white">Instagram</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mobile Top Bar -->
+    <div class="md:hidden mobile-topbar fixed inset-x-0 top-4 z-50 px-4">
+        <div class="flex items-center justify-between gap-3">
+            <div class="liquid-glass !bg-white/30 dark:!bg-slate-900/30 rounded-full px-4 py-2 flex items-center gap-3">
+                <svg class="text-primary dark:text-primary text-lg sparkle-anim" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path fill="currentColor" d="m19 9l-1.25-2.75L15 5l2.75-1.25L19 1l1.25 2.75L23 5l-2.75 1.25L19 9Zm0 14l-1.25-2.75L15 19l2.75-1.25L19 15l1.25 2.75L23 19l-2.75 1.25L19 23ZM9 20l-2.5-5.5L1 12l5.5-2.5L9 4l2.5 5.5L17 12l-5.5 2.5L9 20Z" />
+                </svg>
+                <span
+                    class="font-bold text-xs sm:text-sm text-on-surface dark:text-white tracking-widest uppercase">Mikhael
+                    Rakarenzo</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <button class="theme-toggle-btn relative js-theme-toggle" title="Toggle Theme">
+                    <div
+                        class="theme-icon-wrap overflow-hidden relative w-[18px] h-[18px] flex items-center justify-center">
+                        <img class="js-theme-icon w-full h-full object-contain" src="src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" data-dark-src="src/assets/dark_mode_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg" data-light-src="src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Theme icon" />
+                    </div>
+                </button>
+                <button
+                    class="hover:scale-105 transition-transform flex items-center gap-1 rounded-full px-3 py-2 text-xs font-bold text-on-surface-variant dark:text-primary js-lang-toggle"
+                    title="Change Language">
+                    <img class="js-lang-icon w-[16px] h-[16px]" src="src/assets/language%20black.svg" data-dark-src="src/assets/language%20white.svg" data-light-src="src/assets/language%20black.svg" alt="Language icon" />
+                    <span>EN</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-2">
+        <div
+            class="flex justify-between gap-2 max-w-3xl mx-auto bg-white/90 dark:bg-slate-900/90 border border-outline-variant/20 dark:border-white/10 rounded-full px-4 py-3 shadow-2xl backdrop-blur-xl">
+            <a href="#hero" data-i18n="nav.home"
+                class="mobile-nav-item active flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+                <span class="material-symbols-outlined text-2xl">home</span>
+                <span>Home</span>
+            </a>
+            <a href="#proyek" data-i18n="nav.project"
+                class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+                <span class="material-symbols-outlined text-2xl">category</span>
+                <span>Projects</span>
+            </a>
+            <a href="#sertifikat" data-i18n="nav.cert"
+                class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+                <span class="material-symbols-outlined text-2xl">verified</span>
+                <span>Certificates</span>
+            </a>
+            <a href="#tentang" data-i18n="nav.about"
+                class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+                <span class="material-symbols-outlined text-2xl">person</span>
+                <span>About</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Modal Container -->
+    <div id="project-modal"
+        class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 opacity-0 pointer-events-none transition-all duration-500">
+        <div class="absolute inset-0 bg-slate-900/40 dark:bg-black/80 backdrop-blur-md modal-overlay"></div>
+        <div class="relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-[#030712] border border-black/10 dark:border-white/10 rounded-[40px] shadow-2xl overflow-hidden transform scale-95 transition-all duration-500 card-outline flex flex-col"
+            id="modal-content">
+            <button id="close-modal"
+                class="absolute top-6 right-6 w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex items-center justify-center text-on-surface dark:text-white hover:bg-black/10 dark:hover:bg-white/10 transition-colors z-50">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="overflow-y-auto hide-scrollbar p-8 md:p-12 flex-1">
+                <div id="modal-body" class="space-y-8">
+                    <!-- Dynamic Content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full pt-8 pb-24 md:pb-8 border-t border-black/5 dark:border-white/5 relative z-10">
+        <div class="max-w-container-max mx-auto px-8">
+            <div class="flex flex-col items-center gap-0.5 text-center">
+                <div
+                    class="font-display-xl text-headline-md font-black tracking-tighter text-on-surface dark:text-white flex items-center gap-3">
+                    <span
+                    <svg class="text-primary text-2xl" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 0h24v24H0z" fill="none" />
+                        <path fill="currentColor" d="m19 9l-1.25-2.75L15 5l2.75-1.25L19 1l1.25 2.75L23 5l-2.75 1.25L19 9Zm0 14l-1.25-2.75L15 19l2.75-1.25L19 15l1.25 2.75L23 19l-2.75 1.25L19 23ZM9 20l-2.5-5.5L1 12l5.5-2.5L9 4l2.5 5.5L17 12l-5.5 2.5L9 20Z" />
+                    </svg>
+                    Mikhael Rakarenzo
+                </div>
+
+            </div>
+
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+
