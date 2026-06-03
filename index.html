@@ -16,10 +16,9 @@
     <link rel="preload" as="image" href="src/assets/hero-portrait-460.jpg" fetchpriority="high" />
 
     <!-- Custom Styles -->
-    <link rel="preload" href="src/css/tailwind-built.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="src/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="src/css/animations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="src/css/tailwind-built.css"><link rel="stylesheet" href="src/css/style.css"><link rel="stylesheet" href="src/css/animations.css"></noscript>
+    <link rel="stylesheet" href="src/css/tailwind-built.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/animations.css">
 
     <!-- Custom Scripts (Deferred) -->
     <script src="src/js/translations.js" defer></script>
@@ -66,7 +65,7 @@
                             src="src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
                             data-dark-src="src/assets/dark_mode_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg"
                             data-light-src="src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
-                            alt="Theme icon" />
+                            alt="Theme icon" width="18" height="18" />
                     </div>
                 </button>
                 <button
@@ -74,7 +73,7 @@
                     id="lang-toggle" title="Change Language" aria-label="Change Language">
                     <img class="js-lang-icon w-[16px] h-[16px]" src="src/assets/language%20black.svg"
                         data-dark-src="src/assets/language%20white.svg" data-light-src="src/assets/language%20black.svg"
-                        alt="Language icon" />
+                        alt="Language icon" width="16" height="16" />
                     <span class="text-xs font-bold text-on-surface-variant dark:text-primary">EN</span>
                 </button>
             </div>
@@ -112,29 +111,29 @@
                                 <!-- Group 1 -->
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/python.svg" alt="Python">Python</span>
+                                        src="src/assets/python.svg" alt="Python" width="28" height="28">Python</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/js.svg" alt="JS">JavaScript</span>
+                                        src="src/assets/js.svg" alt="JS" width="28" height="28">JavaScript</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/CSS.svg" alt="CSS">CSS</span>
+                                        src="src/assets/CSS.svg" alt="CSS" width="28" height="28">CSS</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/html5.svg" alt="HTML5">HTML5</span>
+                                        src="src/assets/html5.svg" alt="HTML5" width="28" height="28">HTML5</span>
                                 <!-- Group 2 (Duplicate for seamless loop) -->
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/python.svg" alt="Python">Python</span>
+                                        src="src/assets/python.svg" alt="Python" width="28" height="28">Python</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/js.svg" alt="JS">JavaScript</span>
+                                        src="src/assets/js.svg" alt="JS" width="28" height="28">JavaScript</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/CSS.svg" alt="CSS">CSS</span>
+                                        src="src/assets/CSS.svg" alt="CSS" width="28" height="28">CSS</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/html5.svg" alt="HTML5">HTML5</span>
+                                        src="src/assets/html5.svg" alt="HTML5" width="28" height="28">HTML5</span>
                             </div>
                         </div>
                         <!-- Row 2: Right -->
@@ -144,7 +143,7 @@
                                 <!-- Group 1 -->
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/cisco.svg" alt="Cisco">NetAcad Cisco</span>
+                                        src="src/assets/cisco.svg" alt="Cisco" width="28" height="28">NetAcad Cisco</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
                                         src="src/assets/gns3-35.png" class="scale-[1.3]" alt="GNS3" width="35" height="35">GNS3</span>
@@ -153,11 +152,11 @@
                                         src="src/assets/packettracer-35.png" alt="PacketTracer" width="35" height="35">Packet Tracer</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/wireshark.svg" alt="Wireshark">Wireshark</span>
+                                        src="src/assets/wireshark.svg" alt="Wireshark" width="28" height="28">Wireshark</span>
                                 <!-- Group 2 (Duplicate for seamless loop) -->
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/cisco.svg" alt="Cisco">NetAcad Cisco</span>
+                                        src="src/assets/cisco.svg" alt="Cisco" width="28" height="28">NetAcad Cisco</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
                                         src="src/assets/gns3-35.png" class="scale-[1.3]" alt="GNS3" width="35" height="35">GNS3</span>
@@ -166,7 +165,7 @@
                                         src="src/assets/packettracer-35.png" alt="PacketTracer" width="35" height="35">Packet Tracer</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/wireshark.svg" alt="Wireshark">Wireshark</span>
+                                        src="src/assets/wireshark.svg" alt="Wireshark" width="28" height="28">Wireshark</span>
                             </div>
                         </div>
                         <!-- Row 3: Left -->
@@ -176,29 +175,29 @@
                                 <!-- Group 1 -->
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/claude.svg" alt="Claude">Claude AI</span>
+                                        src="src/assets/claude.svg" alt="Claude" width="28" height="28">Claude AI</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
                                         src="src/assets/stich-35.png" alt="Stitch" width="35" height="35">Google Stitch</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/gemini.svg" alt="Antigravity">Antigravity</span>
+                                        src="src/assets/gemini.svg" alt="Antigravity" width="28" height="28">Antigravity</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/git.svg" alt="Git">Git</span>
+                                        src="src/assets/git.svg" alt="Git" width="28" height="28">Git</span>
                                 <!-- Group 2 (Duplicate for seamless loop) -->
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/claude.svg" alt="Claude">Claude AI</span>
+                                        src="src/assets/claude.svg" alt="Claude" width="28" height="28">Claude AI</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
                                         src="src/assets/stich-35.png" alt="Stitch" width="35" height="35">Google Stitch</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/gemini.svg" alt="Antigravity">Antigravity</span>
+                                        src="src/assets/gemini.svg" alt="Antigravity" width="28" height="28">Antigravity</span>
                                 <span
                                     class="tech-pill liquid-glass px-5 py-2.5 rounded-full text-on-surface dark:text-gray-200 text-xs font-bold whitespace-nowrap"><img
-                                        src="src/assets/git.svg" alt="Git">Git</span>
+                                        src="src/assets/git.svg" alt="Git" width="28" height="28">Git</span>
                             </div>
                         </div>
                     </div>
@@ -415,7 +414,7 @@
                             src="src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
                             data-dark-src="src/assets/dark_mode_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg"
                             data-light-src="src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
-                            alt="Theme icon" />
+                            alt="Theme icon" width="18" height="18" />
                     </div>
                 </button>
                 <button
@@ -423,7 +422,7 @@
                     title="Change Language" aria-label="Change Language">
                     <img class="js-lang-icon w-[16px] h-[16px]" src="src/assets/language%20black.svg"
                         data-dark-src="src/assets/language%20white.svg" data-light-src="src/assets/language%20black.svg"
-                        alt="Language icon" />
+                        alt="Language icon" width="16" height="16" />
                     <span>EN</span>
                 </button>
             </div>

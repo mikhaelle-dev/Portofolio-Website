@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <img alt="${p.title}"
                              class="w-full h-full object-cover rounded-[1.75rem] group-hover:scale-105 transition-transform duration-700"
                              src="${p.img}"
+                             width="400" height="300"
                              loading="lazy" decoding="async" fetchpriority="low">
                     </div>
                     <div class="px-2 pb-2 flex-1 flex flex-col">
@@ -74,7 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.innerHTML = `
                     <div class="rounded-[2rem] overflow-hidden mb-6 aspect-[4/3] p-1">
                         <img src="${cert.img}"
+                             alt="${cert.title}"
                              class="w-full h-full object-contain rounded-[1.75rem] opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                             width="400" height="300"
                              loading="lazy" decoding="async" fetchpriority="low">
                     </div>
                     <div class="px-2 pb-2 flex-1 flex flex-col">
@@ -177,15 +180,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let isClickScrolling = false;
     let scrollTimeout;
+    let currentSection = 'hero';
+    let scrollRaf = null;
+    let sectionOffsets = [];
+    const sections = ['hero', 'proyek', 'sertifikat', 'tentang'];
 
-    window.addEventListener('scroll', () => {
+    function recalcSectionOffsets() {
+        sectionOffsets = sections
+            .map(id => {
+                const el = document.getElementById(id);
+                return el ? { id, top: el.offsetTop } : null;
+            })
+            .filter(Boolean);
+    }
+
+    function setActiveSection(current) {
+        if (!current || current === currentSection) return;
+        currentSection = current;
+
         if (isClickScrolling) return;
-        const sections = ['hero', 'proyek', 'sertifikat', 'tentang'];
-        let current = '';
-        sections.forEach(section => {
-            const el = document.getElementById(section);
-            if (el && el.getBoundingClientRect().top <= 150) current = section;
-        });
 
         navLinks.forEach(link => {
             const href = link.getAttribute('href').replace('#', '');
@@ -204,13 +217,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.classList.toggle('active', shouldActive);
             });
         }
-    });
+    }
+
+    function updateActiveFromScroll() {
+        scrollRaf = null;
+        const y = window.scrollY + 150;
+        let current = sectionOffsets[0]?.id || 'hero';
+        sectionOffsets.forEach(section => {
+            if (section.top <= y) current = section.id;
+        });
+        setActiveSection(current);
+    }
+
+    recalcSectionOffsets();
+
+    window.addEventListener('scroll', () => {
+        if (scrollRaf) return;
+        scrollRaf = window.requestAnimationFrame(updateActiveFromScroll);
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+        recalcSectionOffsets();
+        updateActiveFromScroll();
+    }, { passive: true });
 
 
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             isClickScrolling = true;
             clearTimeout(scrollTimeout);
+            currentSection = link.getAttribute('href').replace('#', '');
             navLinks.forEach(l => l.classList.remove('active-nav'));
             link.classList.add('active-nav');
             moveBackdrop(link);
@@ -232,10 +268,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    setTimeout(() => {
+    window.requestAnimationFrame(() => {
         const activeNav = document.querySelector('.active-nav');
         if (activeNav) moveBackdrop(activeNav);
-    }, 100);
+    });
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
