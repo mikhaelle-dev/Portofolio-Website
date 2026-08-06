@@ -31,7 +31,14 @@
     window.requestAnimationFrame(updateGridOpacity);
 })();
 
-document.addEventListener('DOMContentLoaded', () => {
+
+// === Mobile‑only performance guard ===
+const isMobile = window.matchMedia('(max-width: 768px)').matches;
+if (isMobile) {
+    // Disable grid background scroll fade on mobile – it forces layout each frame
+    const gridBg = document.getElementById('grid-bg');
+    if (gridBg) gridBg.style.display = 'none';
+}document.addEventListener('DOMContentLoaded', () => {
     // --- Render Functions (Homepage Limited View) ---
     const projectGrid = document.getElementById('project-grid');
     const certGrid = document.getElementById('cert-grid');
@@ -243,7 +250,10 @@ document.addEventListener('DOMContentLoaded', () => {
         updateActiveFromScroll();
     });
 
-    window.addEventListener('scroll', () => { if (scrollRaf) return; scrollRaf = window.requestAnimationFrame(updateActiveFromScroll); }, { passive: true });
+    // Only run scroll‑spy on larger screens – mobile devices skip it to keep scrolling smooth
+    if (!isMobile) {
+        window.addEventListener('scroll', () => { if (scrollRaf) return; scrollRaf = window.requestAnimationFrame(updateActiveFromScroll); }, { passive: true });
+    }
 
     window.addEventListener('resize', () => {
         recalcSectionOffsets();
@@ -369,4 +379,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
 
