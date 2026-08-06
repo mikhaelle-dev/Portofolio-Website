@@ -1,20 +1,4 @@
-﻿const projData = [
-    // Template untuk menambahkan project baru
-    // {
-    //     title: "Project Title",
-    //     desc: "English description",
-    //     desc_id: "Deskripsi Indonesia",
-    //     img: "/src/assets/screenshot.png",
-    //     category: "Category",
-    //     category_id: "Kategori",
-    //     year: "2026",
-    //     tech: ["Tech1", "Tech2"],
-    //     contributions: ["Contribution 1", "Contribution 2"],
-    //     contributions_id: ["Kontribusi 1", "Kontribusi 2"],
-    //     implementation: ["Implementation 1"],
-    //     implementation_id: ["Implementasi 1"]
-    // }
-];
+
 
 const certData = [
     {
@@ -24,8 +8,9 @@ const certData = [
         credential_id: "-",
         provider: "Cisco",
         date: "2025",
-        img: "/src/assets/certs/cert_thumbnail-480w.webp",
-        thumb: "/src/assets/certs/cert_thumbnail-360w.webp",
+        img: "/src/assets/certs/CCNASRWEUpdate20260515-32-vbdfrd.webp",
+        thumb: "/src/assets/certs/CCNASRWEUpdate20260515-32-vbdfrd.webp",
+        imgHighRes: "/src/assets/certs/CCNASRWEUpdate20260515-32-vbdfrd.webp",
         links: { demo: "/src/docs/CCNASRWEUpdate20260515-32-vbdfrd.pdf" },
         type: "certification"
     },
@@ -36,8 +21,9 @@ const certData = [
         credential_id: "-",
         provider: "Cisco",
         date: "2026",
-        img: "/src/assets/certs/cert2_thumbnail-480w.webp",
-        thumb: "/src/assets/certs/cert2_thumbnail-360w.webp",
+        img: "/src/assets/certs/NetworkingBasicsUpdate20260518-31-jlp2pd.webp",
+        thumb: "/src/assets/certs/NetworkingBasicsUpdate20260518-31-jlp2pd.webp",
+        imgHighRes: "/src/assets/certs/NetworkingBasicsUpdate20260518-31-jlp2pd.webp",
         links: { demo: "/src/docs/NetworkingBasicsUpdate20260518-31-jlp2pd.pdf" },
         type: "certification"
     },
@@ -48,8 +34,9 @@ const certData = [
         credential_id: "-",
         provider: "Cisco",
         date: "2025",
-        img: "/src/assets/certs/cert3_thumbnail-480w.webp",
-        thumb: "/src/assets/certs/cert3_thumbnail-360w.webp",
+        img: "/src/assets/certs/I2CSUpdate20260518-31-n803g9.webp",
+        thumb: "/src/assets/certs/I2CSUpdate20260518-31-n803g9.webp",
+        imgHighRes: "/src/assets/certs/I2CSUpdate20260518-31-n803g9.webp",
         links: { demo: "/src/docs/I2CSUpdate20260518-31-n803g9.pdf" },
         type: "certification"
     }

@@ -324,10 +324,11 @@ header.fixed.top-8.right-8 {
 
 #modal-content {
     border-radius: 32px !important;
-    max-height: min(90vh, 820px);
+    max-height: calc(min(90vh, 820px) - 4rem);
     width: min(100%, 56rem);
     transform-origin: center;
     will-change: transform;
+    margin-top: 2rem;
 }
 
 #modal-body {
@@ -887,6 +888,7 @@ html {
         padding: 0.5rem 0.35rem !important;
         gap: 0.3rem;
         display: inline-flex;
+
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -965,7 +967,7 @@ html {
     .liquid-glass,
     .card-layered,
     .nav-pill,
-    .mobile-bottom-nav > div {
+    .mobile-bottom-nav>div {
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
         background: rgba(255, 255, 255, 0.95) !important;
@@ -974,7 +976,7 @@ html {
     .dark .liquid-glass,
     .dark .card-layered,
     .dark .nav-pill,
-    .dark .mobile-bottom-nav > div {
+    .dark .mobile-bottom-nav>div {
         background: rgba(3, 7, 18, 0.95) !important;
     }
 
@@ -984,9 +986,19 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .sparkle-anim,
     .floating,
     .brand-sparkle-icon {
         animation: none !important;
     }
+
+
+}
+/* Hide navbars when modal is open (mobile only) */
+@media (max-width: 1024px) {
+  body.modal-open nav,
+  body.modal-open .mobile-bottom-nav {
+    visibility: hidden !important;
+  }
 }

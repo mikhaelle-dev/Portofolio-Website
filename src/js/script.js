@@ -6,7 +6,7 @@
     if (!gridBg) return;
 
     const FADE_START = 80;   // px scrolled before fade begins
-    const FADE_END   = 420;  // px scrolled when grid is fully invisible
+    const FADE_END = 420;  // px scrolled when grid is fully invisible
 
     function updateGridOpacity() {
         const y = window.scrollY;
@@ -38,7 +38,7 @@ if (isMobile) {
     // Disable grid background scroll fade on mobile – it forces layout each frame
     const gridBg = document.getElementById('grid-bg');
     if (gridBg) gridBg.style.display = 'none';
-}document.addEventListener('DOMContentLoaded', () => {
+} document.addEventListener('DOMContentLoaded', () => {
     // --- Render Functions (Homepage Limited View) ---
     const projectGrid = document.getElementById('project-grid');
     const certGrid = document.getElementById('cert-grid');
@@ -64,7 +64,7 @@ if (isMobile) {
                     <div class="px-2 pb-2 flex-1 flex flex-col">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-bold text-xl text-on-surface dark:text-white leading-tight group-hover:text-primary transition-colors origin-left">${p.title}</h3>
-                            <span class="material-symbols-outlined text-primary text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">â†—</span>
+                            <span class="material-symbols-outlined text-primary text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
                         </div>
                         <p class="font-medium text-sm text-on-surface-variant dark:text-gray-400 line-clamp-2 leading-relaxed">${displayDesc}</p>
                         <div class="mt-auto pt-4 flex justify-between items-center text-[10px] font-bold text-on-surface-variant dark:text-gray-500 uppercase tracking-widest border-t border-black/5 dark:border-white/5">
@@ -99,7 +99,7 @@ if (isMobile) {
                     <div class="px-2 pb-2 flex-1 flex flex-col">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-bold text-xl text-on-surface dark:text-white leading-tight group-hover:text-primary transition-colors origin-left">${cert.title}</h3>
-                            <span class="material-symbols-outlined text-primary text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">â†—</span>
+                            <span class="material-symbols-outlined text-primary text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
                         </div>
                         <p class="font-medium text-sm text-on-surface-variant dark:text-gray-400 line-clamp-2 leading-relaxed">${displayDesc}</p>
                         <div class="mt-auto pt-4 flex justify-between items-center text-[10px] font-bold text-on-surface-variant dark:text-gray-500 uppercase tracking-widest border-t border-black/5 dark:border-white/5">

@@ -81,7 +81,7 @@ function openProjectModal(data) {
             </div>
 
             <div class="rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 shadow-2xl bg-black/5 dark:bg-white/5">
-                <img src="${img}" alt="${title}" class="w-full aspect-video object-contain">
+                <img src="${img}" alt="${title}" class="w-full aspect-video object-contain" data-highres="${data.imgHighRes || img}">
             </div>
 
             ${certificateDetailsBlock}
@@ -108,6 +108,8 @@ function openProjectModal(data) {
         </div>
     `;
 
+    // Add class to hide navbar & bottom nav while modal is open
+    document.body.classList.add('modal-open');
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
 
@@ -151,20 +153,21 @@ function openProjectModal(data) {
     }
 
     // Attach click handler to the image inside modal (jika ada)
-    const modalImage = modalBody.querySelector('#modal-body img, #modal-body picture img, #modal-body figure img');
-    if (modalImage) {
-        modalImage.style.cursor = 'zoom-in';
-        modalImage.addEventListener('click', () => createImageLightbox(modalImage.src, modalImage.alt));
-    }
+        const modalImage = modalBody.querySelector('img[data-highres]');
+        if (modalImage) {
+            modalImage.style.cursor = 'zoom-in';
+            const highResSrc = modalImage.dataset.highres;
+            modalImage.addEventListener('click', () => createImageLightbox(highResSrc, modalImage.alt));
+        }
 }
 
 
 
 function closeProjectModal() {
-    if (!modal) return;
-    document.getElementById('image-lightbox')?.remove();
     modal.classList.remove('open');
     document.body.style.overflow = '';
+    // Remove class that hides navbar & bottom nav
+    document.body.classList.remove('modal-open');
 }
 
 if (closeModal) closeModal.addEventListener('click', closeProjectModal);
