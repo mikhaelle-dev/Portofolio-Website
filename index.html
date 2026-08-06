@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,7 +13,8 @@
     <title>Mikhael Rakarenzo</title>
 
     <!-- Dependencies -->
-    <link rel="preload" as="image" href="src/assets/_MG_3812.JPG" fetchpriority="high" />
+    <!-- Preload hero image only on larger screens to avoid heavy download on low-end mobiles -->
+    <link rel="preload" as="image" href="src/assets/_MG_3812.JPG" fetchpriority="high" media="(min-width: 768px)" />
 
     <!-- Custom Styles -->
     <style>
@@ -1509,3 +1510,4 @@
 </body>
 
 </html>
+

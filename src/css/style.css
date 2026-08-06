@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     --primary: #8fb060;
 }
 
@@ -991,3 +991,4 @@ html {
         transform-origin: left top;
     }
 }
+\n@media (max-width: 768px) { .liquid-glass, .card-layered, .nav-pill, .mobile-bottom-nav > div { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: rgba(255,255,255,0.92) !important; } } @media (prefers-reduced-motion: reduce) { .sparkle-anim, .floating, .brand-sparkle-icon { animation: none !important; } }

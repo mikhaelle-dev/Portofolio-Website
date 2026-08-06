@@ -1,5 +1,5 @@
-// =====================================================
-// === GRID BACKGROUND — SCROLL FADE ===
+﻿// =====================================================
+// === GRID BACKGROUND â€” SCROLL FADE ===
 // =====================================================
 (function initGridFade() {
     const gridBg = document.getElementById('grid-bg');
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="px-2 pb-2 flex-1 flex flex-col">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-bold text-xl text-on-surface dark:text-white leading-tight group-hover:text-primary transition-colors origin-left">${p.title}</h3>
-                            <span class="material-symbols-outlined text-primary text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
+                            <span class="material-symbols-outlined text-primary text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">â†—</span>
                         </div>
                         <p class="font-medium text-sm text-on-surface-variant dark:text-gray-400 line-clamp-2 leading-relaxed">${displayDesc}</p>
                         <div class="mt-auto pt-4 flex justify-between items-center text-[10px] font-bold text-on-surface-variant dark:text-gray-500 uppercase tracking-widest border-t border-black/5 dark:border-white/5">
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="px-2 pb-2 flex-1 flex flex-col">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-bold text-xl text-on-surface dark:text-white leading-tight group-hover:text-primary transition-colors origin-left">${cert.title}</h3>
-                            <span class="material-symbols-outlined text-primary text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
+                            <span class="material-symbols-outlined text-primary text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">â†—</span>
                         </div>
                         <p class="font-medium text-sm text-on-surface-variant dark:text-gray-400 line-clamp-2 leading-relaxed">${displayDesc}</p>
                         <div class="mt-auto pt-4 flex justify-between items-center text-[10px] font-bold text-on-surface-variant dark:text-gray-500 uppercase tracking-widest border-t border-black/5 dark:border-white/5">
@@ -243,10 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateActiveFromScroll();
     });
 
-    window.addEventListener('scroll', () => {
-        if (scrollRaf) return;
-        scrollRaf = window.requestAnimationFrame(updateActiveFromScroll);
-    }, { passive: true });
+    window.addEventListener('scroll', () => { if (scrollRaf) return; scrollRaf = window.requestAnimationFrame(updateActiveFromScroll); }, { passive: true });
 
     window.addEventListener('resize', () => {
         recalcSectionOffsets();
@@ -372,3 +369,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
