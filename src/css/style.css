@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --primary: #8fb060;
 }
 
@@ -228,8 +228,10 @@ footer {
 
 .nav-backdrop {
     position: absolute;
-    top: 0;      /* tambah ini */
-    left: 0;     /* tambah ini */
+    top: 0;
+    /* tambah ini */
+    left: 0;
+    /* tambah ini */
     background: linear-gradient(180deg, rgba(143, 176, 96, 0.14), rgba(143, 176, 96, 0.08));
     border: 1px solid rgba(143, 176, 96, 0.26);
     border-radius: 9999px;
@@ -260,7 +262,7 @@ header.fixed.top-8.right-8 {
     max-width: calc(100vw - 2rem);
 }
 
-.fixed.top-8.left-8 > .liquid-glass,
+.fixed.top-8.left-8>.liquid-glass,
 .nav-pill {
     min-height: 54px;
 }
@@ -354,7 +356,7 @@ header.fixed.top-8.right-8 {
 #image-lightbox .image-lightbox-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.65);
+    background: rgba(0, 0, 0, 0.65);
     backdrop-filter: blur(6px);
 }
 
@@ -374,7 +376,7 @@ header.fixed.top-8.right-8 {
     max-height: 88vh;
     border-radius: 14px;
     object-fit: contain;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
 #image-lightbox .image-lightbox-close {
@@ -382,7 +384,7 @@ header.fixed.top-8.right-8 {
     top: 12px;
     right: 12px;
     z-index: 3;
-    background: rgba(255,255,255,0.95);
+    background: rgba(255, 255, 255, 0.95);
     border: none;
     width: 40px;
     height: 40px;
@@ -392,11 +394,11 @@ header.fixed.top-8.right-8 {
     justify-content: center;
     font-size: 16px;
     cursor: pointer;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .dark #image-lightbox .image-lightbox-close {
-    background: rgba(18,18,20,0.9);
+    background: rgba(18, 18, 20, 0.9);
     color: #fff;
 }
 
@@ -419,19 +421,6 @@ header.fixed.top-8.right-8 {
     transform: translateY(0);
 }
 
-.profile-container {
-    perspective: 1000px;
-}
-
-.profile-card {
-    transition: transform 0.2s ease-out;
-    transform-style: preserve-3d;
-    will-change: transform;
-}
-
-.profile-card-touching {
-    transform: scale(1.01);
-}
 
 @keyframes borderGlow {
 
@@ -712,25 +701,9 @@ html {
     .hero-name {
         line-height: 1.02;
     }
-
-    .hero-profile-card {
-        width: clamp(440px, 33vw, 490px) !important;
-        height: clamp(535px, 40vw, 590px) !important;
-    }
-
-    .hero-profile-card img {
-        transform: scale(1.08);
-        transform-origin: center top;
-    }
-
-    .hero-color-switcher {
-        width: clamp(440px, 33vw, 490px) !important;
-    }
 }
 
-.profile-container:hover .hero-profile-card img {
-    transform: scale(1.1);
-}
+
 
 .contact-logo {
     width: 36px;
@@ -744,13 +717,25 @@ html {
 
 /* Modal entrance animations */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes zoomIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .animate-in {
@@ -802,27 +787,7 @@ html {
         margin-top: 1.75rem;
     }
 
-    .profile-card {
-        width: min(90vw, 420px) !important;
-        height: auto !important;
-        border-radius: 28px;
-        padding: 1rem;
-        transform: none !important;
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
 
-    .profile-card-touching {
-        transform: scale(0.985) !important;
-    }
-
-    .profile-lower {
-        margin-top: 2rem;
-    }
-
-    .profile-card img {
-        max-height: 360px;
-        object-fit: cover;
-    }
 
     /* Keep all three rows of technology pills visible on mobile */
     #hero .space-y-4>.marquee-container {
@@ -991,4 +956,24 @@ html {
         transform-origin: left top;
     }
 }
-\n@media (max-width: 768px) { .liquid-glass, .card-layered, .nav-pill, .mobile-bottom-nav > div { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background: rgba(255,255,255,0.92) !important; } } @media (prefers-reduced-motion: reduce) { .sparkle-anim, .floating, .brand-sparkle-icon { animation: none !important; } }
+
+@media (max-width: 768px) {
+    .liquid-glass,
+    .card-layered,
+    .nav-pill,
+    .mobile-bottom-nav > div {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: rgba(255, 255, 255, 0.92) !important;
+    }
+
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sparkle-anim,
+    .floating,
+    .brand-sparkle-icon {
+        animation: none !important;
+    }
+}

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -1031,6 +1031,13 @@
         }
     }
 
+    /* Fix: foto profil grayscale stuck di mobile karena hover state gak bisa di-trigger via tap */
+    @media (max-width: 768px) {
+        .grayscale {
+            filter: none !important;
+        }
+    }
+
     </style>
 
     <!-- Custom Scripts (Deferred) -->
@@ -1244,12 +1251,18 @@
 
                     <!-- Image Container -->
                     <div class="relative w-full h-full rounded-[44px] overflow-hidden z-10">
-                        <img alt="Fadhil Gani Portrait"
-                            class="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-                            width="440" height="570" decoding="async" fetchpriority="high"
-                            srcset="src/assets/_MG_3812.JPG 360w, src/assets/_MG_3812.JPG 460w"
-                            sizes="(min-width: 1024px) 460px, min(90vw, 420px)"
-                            src="src/assets/_MG_3812.JPG" />
+                        <picture>
+                            <source type="image/jpeg"
+                                srcset="src/assets/_MG_3812.JPG"
+                                media="(min-width: 768px)" />
+                            <source type="image/webp"
+                                srcset="src/assets/hero/profile-700w.webp 700w, src/assets/hero/profile-460w.webp 460w"
+                                sizes="min(90vw, 420px)" />
+                            <img alt="Mikhael Rakarenzo Portrait"
+                                class="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                                width="440" height="570" decoding="async" fetchpriority="high"
+                                src="src/assets/_MG_3812.JPG" />
+                        </picture>
                         <!-- Subtle Overlay Gradient -->
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-primary/20 dark:from-primary/10 to-transparent pointer-events-none transition-colors duration-500 group-hover:from-primary/35 dark:group-hover:from-primary/20">
@@ -1510,4 +1523,3 @@
 </body>
 
 </html>
-

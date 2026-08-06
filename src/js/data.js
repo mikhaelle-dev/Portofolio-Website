@@ -1,4 +1,4 @@
-const projData = [
+﻿const projData = [
     // Template untuk menambahkan project baru
     // {
     //     title: "Project Title",
@@ -24,8 +24,8 @@ const certData = [
         credential_id: "-",
         provider: "Cisco",
         date: "2025",
-        img: "/src/assets/cert_thumbnail-563.jpg",
-        thumb: "/src/assets/cert_thumbnail-360.jpg",
+        img: "/src/assets/certs/cert_thumbnail-480w.webp",
+        thumb: "/src/assets/certs/cert_thumbnail-360w.webp",
         links: { demo: "/src/docs/CCNASRWEUpdate20260515-32-vbdfrd.pdf" },
         type: "certification"
     },
@@ -36,8 +36,8 @@ const certData = [
         credential_id: "-",
         provider: "Cisco",
         date: "2026",
-        img: "/src/assets/cert2_thumbnail-563.jpg",
-        thumb: "/src/assets/cert2_thumbnail-360.jpg",
+        img: "/src/assets/certs/cert2_thumbnail-480w.webp",
+        thumb: "/src/assets/certs/cert2_thumbnail-360w.webp",
         links: { demo: "/src/docs/NetworkingBasicsUpdate20260518-31-jlp2pd.pdf" },
         type: "certification"
     },
@@ -48,9 +48,10 @@ const certData = [
         credential_id: "-",
         provider: "Cisco",
         date: "2025",
-        img: "/src/assets/cert3_thumbnail-563.jpg",
-        thumb: "/src/assets/cert3_thumbnail-360.jpg",
+        img: "/src/assets/certs/cert3_thumbnail-480w.webp",
+        thumb: "/src/assets/certs/cert3_thumbnail-360w.webp",
         links: { demo: "/src/docs/I2CSUpdate20260518-31-n803g9.pdf" },
         type: "certification"
     }
 ];
+
