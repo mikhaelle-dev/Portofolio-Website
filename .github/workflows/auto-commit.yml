@@ -1,10 +1,10 @@
-name: Auto Commit Activity
+name: Auto Commit Daily
 
 on:
   schedule:
-    # Runs 5 times daily (01:00, 06:00, 11:00, 16:00, 21:00 UTC) (~08:00, 13:00, 18:00, 23:00, 04:00 WIB)
-    - cron: '0 1,6,11,16,21 * * *'
-  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+    - cron: '0 1,5,9,13,17,21 * * *'
+   
+  workflow_dispatch:
 
 jobs:
   auto-commit:
@@ -15,15 +15,21 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Random delay
+        run: |
+          DELAY=$((RANDOM % 600))  # random 0-10 menit
+          echo "Delay $DELAY detik"
+          sleep $DELAY
+
       - name: Update log file
         run: |
           mkdir -p .autocommit
-          echo "Update on $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> .autocommit/activity.txt
+          echo "Update on $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> .autocommit/activity.log
 
       - name: Commit and push
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .autocommit/activity.txt
-          git diff --staged --quiet || git commit -m "chore: daily auto activity update"
+          git config user.name "mikhaelle-dev"
+          git config user.email "mikhaelrakarenzo@gmail.com"
+          git add .autocommit/activity.log
+          git diff --staged --quiet || git commit -m "chore: daily auto update"
           git push
