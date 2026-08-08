@@ -1,5 +1,7 @@
 
 
+const projData = [];
+
 const certData = [
     {
         title: "CCNA SRWE",
@@ -38,6 +40,21 @@ const certData = [
         thumb: "/src/assets/certs/I2CSUpdate20260518-31-n803g9.webp",
         imgHighRes: "/src/assets/certs/I2CSUpdate20260518-31-n803g9.webp",
         links: { demo: "/src/docs/I2CSUpdate20260518-31-n803g9.pdf" },
+        type: "certification"
+    },
+    {
+        title: "Network Addressing & Troubleshooting",
+        desc: "Network addressing fundamentals, IPv4/IPv6 subnetting, and basic troubleshooting.",
+        desc_id: "Konsep dasar pengalamatan jaringan, IPv4/IPv6, serta pemecahan masalah (troubleshooting) jaringan.",
+        full_desc: "A Cisco Networking Academy course certificate validating proficiency in IP addressing schemes, subnetting, IPv4 & IPv6 configuration, and network connectivity troubleshooting.",
+        full_desc_id: "Sertifikat kursus Cisco Networking Academy yang memvalidasi kemahiran dalam pengalamatan IP, subnetting, konfigurasi IPv4 & IPv6, serta pemecahan masalah jaringan.",
+        credential_id: "-",
+        provider: "Cisco",
+        date: "2026",
+        img: "/src/assets/certs/NetworkAddressingandBasicTroubleshootingUpdate20260808-21-8gyt9p.webp",
+        thumb: "/src/assets/certs/NetworkAddressingandBasicTroubleshootingUpdate20260808-21-8gyt9p.webp",
+        imgHighRes: "/src/assets/certs/NetworkAddressingandBasicTroubleshootingUpdate20260808-21-8gyt9p.webp",
+        links: { demo: "/src/docs/NetworkAddressingandBasicTroubleshootingUpdate20260808-21-8gyt9p.pdf" },
         type: "certification"
     }
 ];

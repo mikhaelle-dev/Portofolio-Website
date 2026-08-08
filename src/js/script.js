@@ -1,4 +1,4 @@
-﻿// =====================================================
+// =====================================================
 // === GRID BACKGROUND â€” SCROLL FADE ===
 // =====================================================
 (function initGridFade() {
@@ -38,13 +38,15 @@ if (isMobile) {
     // Disable grid background scroll fade on mobile – it forces layout each frame
     const gridBg = document.getElementById('grid-bg');
     if (gridBg) gridBg.style.display = 'none';
-} document.addEventListener('DOMContentLoaded', () => {
+}
+
+document.addEventListener('DOMContentLoaded', () => {
     // --- Render Functions (Homepage Limited View) ---
     const projectGrid = document.getElementById('project-grid');
     const certGrid = document.getElementById('cert-grid');
 
     function renderGrids() {
-        if (projectGrid) {
+        if (projectGrid && typeof projData !== 'undefined' && Array.isArray(projData)) {
             projectGrid.innerHTML = '';
             // Only show first 6 on homepage
             projData.slice(0, 6).forEach(p => {
@@ -78,7 +80,7 @@ if (isMobile) {
             });
         }
 
-        if (certGrid) {
+        if (certGrid && typeof certData !== 'undefined' && Array.isArray(certData)) {
             certGrid.innerHTML = '';
             // Only show first 6 on homepage
             certData.slice(0, 6).forEach(cert => {
