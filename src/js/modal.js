@@ -80,8 +80,8 @@ function openProjectModal(data) {
                 <p class="text-lg text-on-surface-variant dark:text-gray-300 max-w-2xl leading-relaxed">${displayDesc}</p>
             </div>
 
-            <div class="rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 shadow-2xl bg-black/5 dark:bg-white/5">
-                <img src="${img}" alt="${title}" class="w-full aspect-video object-contain" data-highres="${data.imgHighRes || img}">
+            <div class="rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 shadow-2xl bg-black/5 dark:bg-white/5 flex items-center justify-center p-2">
+                <img src="${img}" alt="${title}" class="w-full max-h-[55vh] object-contain rounded-2xl" data-highres="${data.imgHighRes || img}">
             </div>
 
             ${certificateDetailsBlock}
@@ -96,10 +96,17 @@ function openProjectModal(data) {
             </div>
 
             <div class="flex flex-wrap gap-4 pt-8 border-t border-black/10 dark:border-white/10">
-                <a href="${links?.demo || '#'}" class="px-8 py-4 rounded-2xl bg-on-surface dark:bg-white text-surface dark:text-black font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2 shadow-xl">
-                    ${translations[currentLang]['modal.viewDetails']} <span class="material-symbols-outlined text-sm">↗</span>
+                ${links?.demo ? `
+                <a href="${links.demo}" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-2xl bg-on-surface dark:bg-white text-surface dark:text-black font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2 shadow-xl">
+                    ${translations[currentLang]['modal.viewDemo'] || translations[currentLang]['modal.viewDetails']} <span class="material-symbols-outlined text-sm">↗</span>
                 </a>
-                ${isCertification ? '' : `
+                ` : ''}
+                ${links?.pkt ? `
+                <a href="${links.pkt}" download="implementasi jaringan kantor.pkt" class="px-8 py-4 rounded-2xl bg-primary text-white font-bold text-sm hover:scale-105 transition-transform flex items-center gap-2 shadow-xl">
+                    <span class="material-symbols-outlined text-sm">download</span> ${translations[currentLang]['modal.downloadPkt'] || 'Download File (.pkt)'}
+                </a>
+                ` : ''}
+                ${isCertification || links?.pkt ? '' : `
                 <a href="${links?.repo || '#'}" class="px-8 py-4 rounded-2xl bg-black/5 dark:bg-white/10 text-on-surface dark:text-white font-bold text-sm border border-black/10 dark:border-white/10 hover:bg-black/10 dark:hover:bg-white/10 transition-colors flex items-center gap-2">
                     ${translations[currentLang]['modal.repository']} <span class="material-symbols-outlined text-sm">&lt;/&gt;</span>
                 </a>
