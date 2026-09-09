@@ -57,8 +57,8 @@ const projData = [
             "File Topologi: implementasi jaringan kantor.pkt"
         ],
         links: {
-            pkt: "/src/assets/project/implementasi jaringan kantor.pkt",
-            demo: "/src/assets/project/implementasi_jaringan_kantor.webp"
+            pkt: "./src/assets/project/implementasi_jaringan_kantor.pkt",
+            demo: "./src/assets/project/implementasi_jaringan_kantor.webp"
         },
         type: "project"
     }
