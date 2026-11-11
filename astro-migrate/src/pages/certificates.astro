@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { certData } from '../data/portfolio';
+---
+
+<BaseLayout title="Certificates — Mikhael Rakarenzo" description="All certifications by Mikhael Rakarenzo" page="certificates">
+  <main class="page-main">
+
+    <!-- Header -->
+    <div class="page-header reveal-section">
+      <div class="page-header-row">
+        <a href="/" class="btn-back">← Back</a>
+      </div>
+      <div class="flex items-center gap-4 mb-3">
+        <h1 class="section-title" style="font-size:clamp(2.5rem,5vw,4rem)" data-i18n="cert.title">My Certifications</h1>
+        <span class="section-badge glass">{certData.length} Global Certifications</span>
+      </div>
+      <p class="section-desc" data-i18n="cert.desc">Professional certifications that validate my technical expertise.</p>
+    </div>
+
+    <!-- Grid -->
+    <div class="content-grid reveal-section" id="cert-grid-all"></div>
+
+  </main>
+</BaseLayout>
+
+<script>
+  import { certData } from '../data/portfolio';
+  import { translations } from '../data/translations';
+
+  (window as any).__i18n = translations;
+  const lang = () => (window as any).currentLang || localStorage.getItem('lang') || 'en';
+
+  function render() {
+    const l = lang();
+    const grid = document.getElementById('cert-grid-all');
+    if (!grid) return;
+    grid.innerHTML = '';
+    certData.forEach(c => {
+      const desc = (c as any).desc_id && l === 'id' ? (c as any).desc_id : c.desc;
+      const card = document.createElement('div');
+      card.className = 'portfolio-card glass card card-outline';
+      card.innerHTML = `
+        <div class="card-img-wrap">
+          <img class="card-img card-img-contain" alt="${c.title}" src="${c.thumb || c.img}" width="360" height="278" loading="lazy" decoding="async">
+        </div>
+        <div class="card-body">
+          <div class="flex items-center justify-between gap-2" style="margin-bottom:0.5rem">
+            <h3 class="card-title">${c.title}</h3>
+            <span class="card-arrow">↗</span>
+          </div>
+          <p class="card-desc">${desc}</p>
+          <div class="card-footer">
+            <span class="truncate" style="max-width:65%">${c.provider}</span>
+            <span>${c.date}</span>
+          </div>
+        </div>
+      `;
+      card.addEventListener('click', () => (window as any).openProjectModal?.({
+        ...c,
+        category: 'Certification', category_id: 'Sertifikasi',
+        year: c.date, tech: [c.provider, 'Cisco Networking Academy'],
+      }));
+      grid.appendChild(card);
+    });
+    (window as any).applyI18n?.();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    render();
+    document.addEventListener('languageChanged', render);
+  });
+</script>

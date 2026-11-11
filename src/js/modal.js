@@ -4,11 +4,28 @@ const modalBody = document.getElementById('modal-body');
 const closeModal = document.getElementById('close-modal');
 const modalOverlay = modal?.querySelector('.modal-overlay');
 
+function syncOpenModalThemeImage() {
+    if (!modal || !modalBody || modal.classList.contains('pointer-events-none')) return;
+    const modalImg = modalBody.querySelector('img[alt]');
+    if (!modalImg) return;
+    const currentAlt = modalImg.getAttribute('alt');
+    const data = modal.dataset.projectData ? JSON.parse(modal.dataset.projectData) : null;
+    if (!data || !currentAlt) return;
+    const themedSet = typeof getThemedImages === 'function' ? getThemedImages(data) : { dark: data.img, light: data.img, highResDark: data.imgHighRes || data.img, highResLight: data.imgHighResLight || data.imgHighRes || data.img };
+    const nextSrc = typeof themedSrc === 'function' ? themedSrc(themedSet, typeof isDarkTheme === 'function' ? isDarkTheme() : false) : data.img;
+    const nextHighRes = typeof themedHighRes === 'function' ? themedHighRes(themedSet, typeof isDarkTheme === 'function' ? isDarkTheme() : false) : (data.imgHighRes || data.img);
+    modalImg.src = nextSrc;
+    modalImg.setAttribute('data-highres', nextHighRes);
+}
+
 function openProjectModal(data) {
     if (!modal || !modalBody) return;
 
     const { title, desc, desc_id, full_desc, full_desc_id, img, category, category_id, year, tech, contributions, contributions_id, implementation, implementation_id, links, credential_id, type } = data;
     const isCertification = type === 'certification' || category === 'Certification' || category_id === 'Sertifikasi';
+    const themedSet = typeof getThemedImages === 'function' ? getThemedImages(data) : { dark: img, light: img, highResDark: data.imgHighRes || img, highResLight: data.imgHighResLight || data.imgHighRes || img };
+    const modalImageSrc = typeof themedSrc === 'function' ? themedSrc(themedSet, isDarkTheme && isDarkTheme()) : img;
+    const modalImageHighres = typeof themedHighRes === 'function' ? themedHighRes(themedSet, isDarkTheme && isDarkTheme()) : (data.imgHighRes || img);
 
     const displayDesc = (currentLang === 'id' && desc_id) ? desc_id : desc;
     const displayFullDesc = (currentLang === 'id' && full_desc_id) ? full_desc_id : full_desc || displayDesc;
@@ -69,6 +86,8 @@ function openProjectModal(data) {
             </div>
         `;
 
+    modal.dataset.projectData = JSON.stringify(data);
+
     modalBody.innerHTML = `
         <div class="flex flex-col gap-8 animate-in fade-in zoom-in duration-500">
             <div class="space-y-4">
@@ -80,8 +99,8 @@ function openProjectModal(data) {
                 <p class="text-lg text-on-surface-variant dark:text-gray-300 max-w-2xl leading-relaxed">${displayDesc}</p>
             </div>
 
-            <div class="rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 shadow-2xl bg-black/5 dark:bg-white/5 flex items-center justify-center p-2">
-                <img src="${img}" alt="${title}" class="w-full max-h-[55vh] object-contain rounded-2xl" data-highres="${data.imgHighRes || img}">
+            <div class="rounded-[32px] overflow-hidden border border-black/10 dark:border-white/10 shadow-2xl bg-[#f5f7fb] dark:bg-[#030712] flex items-center justify-center p-3 md:p-4">
+                <img src="${modalImageSrc}" alt="${title}" class="w-full max-h-[55vh] object-contain rounded-[18px] bg-[#f5f7fb] dark:bg-[#030712]" data-highres="${modalImageHighres}">
             </div>
 
             ${certificateDetailsBlock}

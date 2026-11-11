@@ -52,14 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
             projData.slice(0, 6).forEach(p => {
                 const displayDesc = (typeof currentLang !== 'undefined' && currentLang === 'id' && p.desc_id) ? p.desc_id : p.desc;
                 const displayCategory = (typeof currentLang !== 'undefined' && currentLang === 'id' && p.category_id) ? p.category_id : p.category;
+                const thumbs = typeof getThemedImages === 'function' ? getThemedImages(p) : { dark: p.img, light: p.img };
+                const thumbSrc = typeof themedSrc === 'function' ? themedSrc(thumbs) : p.img;
 
                 const card = document.createElement('div');
                 card.className = "card-outline liquid-glass card-layered rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_50px_rgba(var(--primary-rgb,143,176,96),0.15)] group cursor-pointer p-4 flex flex-col";
                 card.innerHTML = `
                     <div class="rounded-[2rem] overflow-hidden mb-6 aspect-[4/3] p-1">
                         <img alt="${p.title}"
-                             class="w-full h-full object-cover rounded-[1.75rem] group-hover:scale-105 transition-transform duration-700"
-                             src="${p.img}"
+                             class="js-theme-aware-thumb w-full h-full object-cover rounded-[1.75rem] group-hover:scale-105 transition-transform duration-700"
+                             src="${thumbSrc}"
+                             data-thumb-dark="${thumbs.dark}"
+                             data-thumb-light="${thumbs.light}"
                              width="400" height="300"
                              loading="lazy" decoding="async" fetchpriority="low">
                     </div>
@@ -159,6 +163,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.add(isDark ? 'icon-anim-rise-moon' : 'icon-anim-rise-sun');
             });
         });
+
+        if (typeof refreshThemeAwareImages === 'function') {
+            refreshThemeAwareImages();
+        }
+        if (typeof syncOpenModalThemeImage === 'function') {
+            syncOpenModalThemeImage();
+        }
     }
 
     // Initialize theme once (do NOT force remove('dark') like before)
@@ -252,7 +263,24 @@ document.addEventListener('DOMContentLoaded', () => {
         updateActiveFromScroll();
     });
 
-    // Only run scroll‑spy on larger screens – mobile devices skip it to keep scrolling smooth
+    // Use IntersectionObserver for scroll-spy on ALL devices (efficient, no main-thread blocking)
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setActiveSection(entry.target.id);
+            }
+        });
+    }, {
+        rootMargin: '-40% 0px -55% 0px',
+        threshold: 0
+    });
+
+    sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) sectionObserver.observe(el);
+    });
+
+    // Keep scroll listener for desktop as extra precision
     if (!isMobile) {
         window.addEventListener('scroll', () => { if (scrollRaf) return; scrollRaf = window.requestAnimationFrame(updateActiveFromScroll); }, { passive: true });
     }

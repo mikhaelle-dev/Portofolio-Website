@@ -7,12 +7,14 @@ const projData = [
         desc_id: "Implementasi topologi jaringan kantor enterprise komprehensif dengan 13 VLAN, routing OSPF, VoIP, keamanan ACL, dan server khusus.",
         full_desc: "Full enterprise network implementation built in Cisco Packet Tracer. Features end-to-end network routing, voice services, security controls, and dual-stack IPv6 connectivity across all departmental VLANs.",
         full_desc_id: "Implementasi jaringan kantor enterprise penuh pada Cisco Packet Tracer. Menyediakan routing jaringan end-to-end, layanan suara VoIP, kontrol keamanan ACL, dan konektivitas Dual-Stack IPv6 di seluruh VLAN departemen.",
-        category: "Network Engineering",
-        category_id: "Rekayasa Jaringan",
+        category: "Cisco paket tracer labs",
+        category_id: "Cisco paket tracer lab",
         year: "2026",
-        img: "/src/assets/project/implementasi_jaringan_kantor.webp",
-        thumb: "/src/assets/project/implementasi_jaringan_kantor.webp",
-        imgHighRes: "/src/assets/project/implementasi_jaringan_kantor.webp",
+        img: "/src/assets/project/topologi_kantor_thumb.webp",
+        thumb: "/src/assets/project/topologi_kantor_thumb.webp",
+        thumbLight: "/src/assets/project/topologi_kantor_thumb_light.webp",
+        imgHighRes: "/src/assets/project/topologi_kantor_thumb.webp",
+        imgHighResLight: "/src/assets/project/topologi_kantor_thumb_light.webp",
         tech: ["Cisco Packet Tracer", "L3 Switch (SVI)", "OSPF", "CallManager Express (VoIP)", "NAT/PAT", "ACL", "IPv6 Dual-Stack", "STP", "DHCP Snooping"],
         contributions: [
             "VLAN & Trunking: 13 VLAN configured across switches with 802.1Q trunking.",
@@ -58,7 +60,7 @@ const projData = [
         ],
         links: {
             pkt: "./src/assets/project/implementasi_jaringan_kantor.pkt",
-            demo: "./src/assets/project/implementasi_jaringan_kantor.webp"
+            demo: "/src/assets/project/topologi-kantor.html"
         },
         type: "project"
     }

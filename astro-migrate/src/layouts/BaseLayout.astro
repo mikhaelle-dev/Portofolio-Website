@@ -1,0 +1,290 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  page?: 'home' | 'projects' | 'certificates';
+}
+
+const {
+  title = 'Mikhael Rakarenzo',
+  description = 'Portfolio of Mikhael Rakarenzo — Networking & Web Development enthusiast from Indonesia.',
+  page = 'home',
+} = Astro.props;
+
+const isHome = page === 'home';
+---
+
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <title>{title}</title>
+  {isHome && <link rel="preload" as="image" href="/assets/_MG_3812.JPG" fetchpriority="high" />}
+</head>
+<body>
+  <!-- Ambient effects -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div id="grid-bg" aria-hidden="true"></div>
+
+  <!-- ===== DESKTOP: Brand (top-left) ===== -->
+  <div style="position:fixed;top:2rem;left:2rem;z-index:80;display:none" class="md:flex" id="nav-brand-wrap">
+    <a href="/" class="nav-brand glass rounded-full">
+      <span class="brand-sparkle sparkle-anim" aria-hidden="true"></span>
+      <span>Mikhael Rakarenzo</span>
+    </a>
+  </div>
+
+  <!-- ===== DESKTOP: Nav pill (top-right) ===== -->
+  <header style="position:fixed;top:2rem;right:2rem;z-index:80;display:none" class="md:flex" id="desktop-header">
+    <div id="main-nav" class="nav-pill">
+      <div id="nav-backdrop" class="nav-backdrop"></div>
+      <nav class="nav-links">
+        {isHome ? (
+          <>
+            <a class="nav-link active" data-i18n="nav.home" href="#hero">Home</a>
+            <a class="nav-link" data-i18n="nav.project" href="#proyek">Projects</a>
+            <a class="nav-link" data-i18n="nav.cert" href="#sertifikat">Certificates</a>
+            <a class="nav-link" data-i18n="nav.about" href="#tentang">About</a>
+          </>
+        ) : (
+          <>
+            <a class={`nav-link ${page === 'home' ? 'active' : ''}`} href="/">Home</a>
+            <a class={`nav-link ${page === 'projects' ? 'active' : ''}`} href="/projects">Projects</a>
+            <a class={`nav-link ${page === 'certificates' ? 'active' : ''}`} href="/certificates">Certificates</a>
+          </>
+        )}
+      </nav>
+      <div class="nav-divider"></div>
+      <div class="flex items-center gap-4">
+        <button class="theme-btn js-theme-toggle" id="theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">
+          <div class="theme-icon-wrap">
+            <img id="theme-icon" class="theme-icon js-theme-icon"
+              src="/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+              data-dark-src="/assets/dark_mode_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg"
+              data-light-src="/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+              alt="Theme" width="18" height="18" />
+          </div>
+        </button>
+        <button class="lang-btn js-lang-toggle" id="lang-toggle" title="Change Language" aria-label="Change Language">
+          <img class="js-lang-icon" src="/assets/language black.svg"
+            data-dark-src="/assets/language white.svg" data-light-src="/assets/language black.svg"
+            alt="Language" width="16" height="16" style="flex-shrink:0" />
+          <span>EN</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MOBILE: Top bar ===== -->
+  <div class="mobile-topbar" id="mobile-topbar">
+    <div class="mobile-topbar-inner">
+      <div class="mobile-brand">
+        <span class="brand-sparkle sparkle-anim" aria-hidden="true"></span>
+        <span>Mikhael Rakarenzo</span>
+      </div>
+      <div class="mobile-controls">
+        <button class="theme-btn js-theme-toggle" title="Toggle Theme" aria-label="Toggle Theme">
+          <div class="theme-icon-wrap">
+            <img class="theme-icon js-theme-icon"
+              src="/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+              data-dark-src="/assets/dark_mode_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg"
+              data-light-src="/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+              alt="Theme" width="18" height="18" />
+          </div>
+        </button>
+        <button class="lang-btn js-lang-toggle" title="Change Language" aria-label="Change Language">
+          <img class="js-lang-icon" src="/assets/language black.svg"
+            data-dark-src="/assets/language white.svg" data-light-src="/assets/language black.svg"
+            alt="Language" width="16" height="16" style="flex-shrink:0" />
+          <span>EN</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MOBILE: Bottom nav ===== -->
+  <nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="Mobile navigation">
+    <div class="mobile-bottom-nav-inner">
+      {isHome ? (
+        <>
+          <a href="#hero" class="mobile-nav-item active" id="mnav-home">
+            <span class="mobile-nav-icon mobile-nav-icon-home" aria-hidden="true"></span>
+            <span data-i18n="nav.home">Home</span>
+          </a>
+          <a href="#proyek" class="mobile-nav-item" id="mnav-project">
+            <span class="mobile-nav-icon mobile-nav-icon-project" aria-hidden="true"></span>
+            <span data-i18n="nav.project">Projects</span>
+          </a>
+          <a href="#sertifikat" class="mobile-nav-item" id="mnav-cert">
+            <span class="mobile-nav-icon mobile-nav-icon-cert" aria-hidden="true"></span>
+            <span data-i18n="nav.cert">Certificates</span>
+          </a>
+          <a href="#tentang" class="mobile-nav-item" id="mnav-about">
+            <span class="mobile-nav-icon mobile-nav-icon-about" aria-hidden="true"></span>
+            <span data-i18n="nav.about">About</span>
+          </a>
+        </>
+      ) : (
+        <>
+          <a href="/" class="mobile-nav-item">
+            <span class="mobile-nav-icon mobile-nav-icon-home" aria-hidden="true"></span>
+            <span>Home</span>
+          </a>
+          <a href="/projects" class={`mobile-nav-item ${page === 'projects' ? 'active' : ''}`}>
+            <span class="mobile-nav-icon mobile-nav-icon-project" aria-hidden="true"></span>
+            <span>Projects</span>
+          </a>
+          <a href="/certificates" class={`mobile-nav-item ${page === 'certificates' ? 'active' : ''}`}>
+            <span class="mobile-nav-icon mobile-nav-icon-cert" aria-hidden="true"></span>
+            <span>Certificates</span>
+          </a>
+        </>
+      )}
+    </div>
+  </nav>
+
+  <!-- ===== PAGE CONTENT ===== -->
+  <slot />
+
+  <!-- ===== MODAL ===== -->
+  <div id="project-modal" role="dialog" aria-modal="true" aria-label="Project details">
+    <div class="modal-overlay"></div>
+    <div id="modal-content">
+      <button id="close-modal" aria-label="Close">&times;</button>
+      <div id="modal-scroll">
+        <div id="modal-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-name">
+        <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="color:var(--primary)" class="sparkle-anim">
+          <path fill="currentColor" d="m19 9-1.25-2.75L15 5l2.75-1.25L19 1l1.25 2.75L23 5l-2.75 1.25L19 9Zm0 14-1.25-2.75L15 19l2.75-1.25L19 15l1.25 2.75L23 19l-2.75 1.25L19 23ZM9 20l-2.5-5.5L1 12l5.5-2.5L9 4l2.5 5.5L17 12l-5.5 2.5L9 20Z"/>
+        </svg>
+        Mikhael Rakarenzo
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+<script>
+  import { initModal } from '../scripts/modal';
+  import { refreshThemeAwareImages } from '../scripts/theme-images';
+
+  // ============================================================
+  // THEME — runs immediately to prevent flash of wrong theme
+  // ============================================================
+  (function() {
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+    const isDark = saved ? saved === 'dark' : prefersDark;
+    document.documentElement.classList.toggle('dark', isDark);
+    // Also restore color
+    const savedColor = localStorage.getItem('theme-color');
+    if (savedColor) document.documentElement.style.setProperty('--primary', savedColor);
+  })();
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const html = document.documentElement;
+
+    // --- Theme toggle ---
+    function applyTheme(dark: boolean) {
+      html.classList.toggle('dark', dark);
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+      document.querySelectorAll<HTMLImageElement>('.js-theme-icon, .js-lang-icon').forEach(img => {
+        const src = dark ? img.dataset.darkSrc : img.dataset.lightSrc;
+        if (src) img.src = src;
+        img.classList.remove('anim-sun', 'anim-moon');
+        requestAnimationFrame(() => img.classList.add(dark ? 'anim-moon' : 'anim-sun'));
+      });
+      refreshThemeAwareImages();
+    }
+    applyTheme(html.classList.contains('dark'));
+
+    document.querySelectorAll('.js-theme-toggle').forEach(btn =>
+      btn.addEventListener('click', () => applyTheme(!html.classList.contains('dark')))
+    );
+
+    // --- Color switcher ---
+    document.querySelectorAll<HTMLElement>('.color-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const c = btn.dataset.color;
+        if (!c) return;
+        html.style.setProperty('--primary', c);
+        localStorage.setItem('theme-color', c);
+      });
+    });
+
+    // --- Language toggle ---
+    let lang: string = localStorage.getItem('lang') || 'en';
+    (window as any).currentLang = lang;
+
+    function updateLangUI() {
+      document.querySelectorAll('.js-lang-toggle span:not(.js-lang-icon)').forEach(el => {
+        el.textContent = lang === 'en' ? 'EN' : 'ID';
+      });
+    }
+
+    document.querySelectorAll('.js-lang-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        lang = lang === 'en' ? 'id' : 'en';
+        (window as any).currentLang = lang;
+        localStorage.setItem('lang', lang);
+        updateLangUI();
+        applyI18n();
+        document.dispatchEvent(new CustomEvent('languageChanged'));
+      });
+    });
+
+    function applyI18n() {
+      const tMap: Record<string, Record<string, string>> = (window as any).__i18n || {};
+      if (!tMap[lang]) return;
+      document.querySelectorAll<HTMLElement>('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n!;
+        if (tMap[lang][key]) el.textContent = tMap[lang][key];
+      });
+    }
+    (window as any).applyI18n = applyI18n;
+
+    updateLangUI();
+    // Apply after translations loaded
+    setTimeout(applyI18n, 0);
+
+    // --- Scroll effects ---
+    const navPill = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      navPill?.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    // Grid bg fade
+    const gridBg = document.getElementById('grid-bg');
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile && gridBg) { gridBg.style.display = 'none'; }
+    else if (gridBg) {
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        const alpha = Math.max(0, 1 - (y - 80) / 340);
+        gridBg.style.opacity = String(alpha);
+      }, { passive: true });
+    }
+
+    // --- Reveal on scroll ---
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal-section').forEach(el => revealObs.observe(el));
+
+    initModal();
+  });
+</script>

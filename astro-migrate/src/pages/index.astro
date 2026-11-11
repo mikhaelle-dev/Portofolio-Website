@@ -1,0 +1,360 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projData, certData } from '../data/portfolio';
+
+// Tech pills data
+const techRow1 = ['Python','JavaScript','CSS','HTML5'];
+const techRow2 = ['NetAcad Cisco','GNS3','Packet Tracer','Wireshark'];
+const techRow3 = ['Claude AI','Google Stitch','Antigravity','Git'];
+
+const techIcons: Record<string, string> = {
+  'Python': 'python.svg', 'JavaScript': 'js.svg', 'CSS': 'CSS.svg', 'HTML5': 'html5.svg',
+  'NetAcad Cisco': 'cisco.svg', 'GNS3': 'gns3.png', 'Packet Tracer': 'packettracer-35.png', 'Wireshark': 'wireshark.svg',
+  'Claude AI': 'claude.svg', 'Google Stitch': 'stich-35.png', 'Antigravity': 'gemini.svg', 'Git': 'git.svg',
+};
+
+const contactLinks = [
+  { href: 'https://mail.google.com/mail/?view=cm&fs=1&to=mikhaelrakarenzo@gmail.com', label: 'Compose email', icon: 'gmail.svg', name: 'Gmail' },
+  { href: 'https://github.com/mikhaelle-dev', label: 'GitHub', icon: 'github.svg', name: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/mikhael-rakarenzo-mahendra-a699632b9', label: 'LinkedIn', icon: 'linkedin.svg', name: 'LinkedIn' },
+  { href: 'https://www.instagram.com/mikhaelle._?igsh=MW5vOGl2MDZwcHRhcQ==', label: 'Instagram', icon: 'instagram.svg', name: 'Instagram' },
+];
+
+const colorOptions = [
+  { color: '#8FB060', title: 'Default Green' },
+  { color: '#186301', title: 'Dark Green' },
+  { color: '#0bdbb6', title: 'Teal' },
+  { color: '#800020', title: 'Maroon Red' },
+];
+---
+
+<BaseLayout title="Mikhael Rakarenzo — Portfolio" page="home">
+  <main class="page-main" id="home-main">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero-section reveal-section" id="hero">
+
+      <!-- Left: Text -->
+      <div class="flex flex-col gap-8 flex-1 relative">
+        <div class="hero-bg-blob" aria-hidden="true"></div>
+
+        <h1 class="hero-title">
+          <span class="block" style="color:var(--on-surface)" data-i18n="hero.greeting">Hello, i'm</span>
+          <span class="hero-name block">
+            <span class="block" data-i18n="hero.nameFirst">Mikhael</span>
+            <span class="block" data-i18n="hero.nameLast">Rakarenzo</span>
+          </span>
+        </h1>
+
+        <p class="hero-desc" data-i18n="hero.desc">
+          A Networking and Web Development enthusiast from Indonesia, interested in Network Engineering,
+          Front-End Development, Network Security, and Network Operations Center.
+        </p>
+
+        <!-- Tech pills -->
+        <div>
+          <h2 class="text-sm font-bold mb-4" style="color:var(--on-surface)" data-i18n="hero.tech">Technologies I use:</h2>
+          <div class="flex flex-col gap-4" style="max-width:700px">
+
+            <!-- Row 1 -->
+            <div class="marquee-container">
+              <div class="marquee-content">
+                {[...techRow1, ...techRow1].map(name => (
+                  <span class="tech-pill glass rounded-full">
+                    <img src={`/assets/${techIcons[name]}`} alt={name} width="28" height="28" />
+                    {name}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Row 2 (reverse) -->
+            <div class="marquee-container">
+              <div class="marquee-content-reverse">
+                {[...techRow2, ...techRow2].map(name => (
+                  <span class="tech-pill glass rounded-full">
+                    <img src={`/assets/${techIcons[name]}`} alt={name} width="28" height="28" />
+                    {name}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="marquee-container">
+              <div class="marquee-content">
+                {[...techRow3, ...techRow3].map(name => (
+                  <span class="tech-pill glass rounded-full">
+                    <img src={`/assets/${techIcons[name]}`} alt={name} width="28" height="28" />
+                    {name}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CTA buttons -->
+        <div style="padding-top:1rem">
+          <button class="btn-ghost" data-i18n="hero.downloadCv">
+            ↓ Download CV
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Profile card -->
+      <div class="flex flex-col items-center profile-col floating" style="gap:2rem">
+        <div class="profile-card glass" id="profile-card">
+          <div class="profile-glow" aria-hidden="true"></div>
+          <div class="profile-photo-wrap">
+            <picture>
+              <source type="image/jpeg" srcset="/assets/_MG_3812.JPG" media="(min-width: 768px)" />
+              <source type="image/webp"
+                srcset="/assets/hero/profile-700w.webp 700w, /assets/hero/profile-460w.webp 460w"
+                sizes="min(90vw, 420px)" />
+              <img class="profile-photo" alt="Mikhael Rakarenzo Portrait"
+                width="440" height="570" decoding="async" fetchpriority="high"
+                src="/assets/_MG_3812.JPG" />
+            </picture>
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(var(--primary-rgb),0.2),transparent);pointer-events:none" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Color switcher -->
+        <div class="color-switcher glass rounded-full">
+          {colorOptions.map(c => (
+            <button
+              class="color-btn"
+              style={`background-color:${c.color}`}
+              data-color={c.color}
+              title={c.title}
+              aria-label={c.title}
+            ></button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider-cta">
+      <a class="divider-btn" href="#proyek" data-i18n="scroll.down">
+        SEE MY CONTRIBUTION ↓
+      </a>
+    </div>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="section reveal-section" id="proyek">
+      <div class="section-row">
+        <div>
+          <div class="flex items-center gap-4 mb-2">
+            <h2 class="section-title" data-i18n="project.title">My Projects</h2>
+            <span class="section-badge glass" data-i18n="project.counter">Featured Projects</span>
+          </div>
+          <p class="section-desc" data-i18n="project.desc">Here are some of my recent projects.</p>
+        </div>
+      </div>
+      <div class="content-grid" id="project-grid"></div>
+      <div class="flex justify-center" style="margin-top:3rem">
+        <a href="/projects" class="btn-primary" data-i18n="project.btn">View All My Projects</a>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICATES ===== -->
+    <section class="section reveal-section" id="sertifikat">
+      <div class="section-row">
+        <div>
+          <div class="flex items-center gap-4 mb-2">
+            <h2 class="section-title" data-i18n="cert.title">My Certifications</h2>
+            <span class="section-badge glass" data-i18n="cert.counter">5 Global Certifications</span>
+          </div>
+          <p class="section-desc" data-i18n="cert.desc">Professional certifications that validate my technical expertise.</p>
+        </div>
+      </div>
+      <div class="content-grid" id="cert-grid"></div>
+      <div class="flex justify-center" style="margin-top:3rem">
+        <a href="/certificates" class="btn-primary" data-i18n="cert.btn">View All My Certificates</a>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section reveal-section" id="tentang">
+      <h2 class="section-title mb-8" data-i18n="about.title">About Me</h2>
+      <div class="about-block glass card">
+        <p class="about-text" data-i18n="about.desc">
+          I am a developer passionate about modern web technologies and user-centric design. With years of
+          experience building scalable applications, I strive to combine minimalist design aesthetics with
+          robust technical performance. My focus is on creating fluid, intuitive experiences that push the
+          boundaries of modern web standards.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section reveal-section" id="kontak">
+      <h2 class="section-title text-center mb-4" data-i18n="contact.title">Let's Connect</h2>
+      <p class="section-desc text-center mx-auto mb-16" style="max-width:28rem" data-i18n="contact.desc">
+        I'm always open to new collaborations or just a tech discussion.
+      </p>
+      <div class="content-grid md:grid-cols-4" style="max-width:64rem;margin:0 auto">
+        {contactLinks.map(c => (
+          <a class="contact-card glass card card-outline" href={c.href} target="_blank" rel="noopener noreferrer" aria-label={c.label}>
+            <div class="contact-icon-wrap">
+              <img class="contact-logo" src={`/assets/${c.icon}`} alt={`${c.name} logo`} width="36" height="36" loading="lazy" decoding="async" />
+            </div>
+            <span class="text-xs font-bold uppercase tracking-widest" style="color:var(--on-surface)">{c.name}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>
+
+<script>
+  import { projData, certData } from '../data/portfolio';
+  import { translations } from '../data/translations';
+  import { getThemedImages, themedSrc } from '../scripts/theme-images';
+
+  // Expose translations globally for BaseLayout i18n
+  (window as any).__i18n = translations;
+
+  const lang = () => (window as any).currentLang || localStorage.getItem('lang') || 'en';
+
+  function renderCard(p: any, type: 'project' | 'cert') {
+    const l = lang();
+    const desc = l === 'id' && p.desc_id ? p.desc_id : p.desc;
+    const category = l === 'id' && p.category_id ? p.category_id : (p.category || p.provider);
+    const year = p.year || p.date;
+    const thumbs = getThemedImages(p);
+    const src = themedSrc(thumbs);
+    const thumbClass = type === 'cert'
+      ? 'card-img card-img-contain'
+      : 'card-img js-theme-aware-thumb';
+
+    const card = document.createElement('div');
+    card.className = 'portfolio-card glass card card-outline';
+    card.innerHTML = `
+      <div class="card-img-wrap">
+        <img alt="${p.title}" class="${thumbClass}" src="${src}"
+             data-thumb-dark="${thumbs.dark}" data-thumb-light="${thumbs.light}"
+             width="400" height="300" loading="lazy" decoding="async">
+      </div>
+      <div class="card-body">
+        <div class="flex items-center justify-between gap-2" style="margin-bottom:0.5rem">
+          <h3 class="card-title">${p.title}</h3>
+          <span class="card-arrow">↗</span>
+        </div>
+        <p class="card-desc">${desc}</p>
+        <div class="card-footer">
+          <span class="truncate" style="max-width:65%">${category}</span>
+          <span>${year}</span>
+        </div>
+      </div>
+    `;
+
+    const modalData = type === 'cert'
+      ? { ...p, category: 'Certification', category_id: 'Sertifikasi', year: p.date, tech: [p.provider, 'Cisco Networking Academy'] }
+      : p;
+    card.addEventListener('click', () => (window as any).openProjectModal?.(modalData));
+    return card;
+  }
+
+  function renderGrids() {
+    const pGrid = document.getElementById('project-grid');
+    const cGrid = document.getElementById('cert-grid');
+    if (pGrid) {
+      pGrid.innerHTML = '';
+      projData.slice(0,6).forEach(p => pGrid.appendChild(renderCard(p, 'project')));
+    }
+    if (cGrid) {
+      cGrid.innerHTML = '';
+      certData.slice(0,6).forEach(c => cGrid.appendChild(renderCard(c, 'cert')));
+    }
+    // Re-apply i18n after render
+    (window as any).applyI18n?.();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderGrids();
+    document.addEventListener('languageChanged', renderGrids);
+
+    // ============================================================
+    // SCROLL SPY — IntersectionObserver (works on mobile too)
+    // ============================================================
+    const sections = ['hero', 'proyek', 'sertifikat', 'tentang'];
+    const navLinks = document.querySelectorAll('.nav-link');
+    const mobileItems = document.querySelectorAll('.mobile-nav-item');
+    const navBackdrop = document.getElementById('nav-backdrop');
+    const navPill = document.getElementById('main-nav');
+    let activeId = 'hero';
+
+    function moveBackdrop(el: Element) {
+      if (!navBackdrop || !navPill) return;
+      const r = el.getBoundingClientRect();
+      const pr = navPill.getBoundingClientRect();
+      navBackdrop.style.opacity = '1';
+      navBackdrop.style.width = `${r.width}px`;
+      navBackdrop.style.height = `${r.height}px`;
+      navBackdrop.style.transform = `translate(${r.left - pr.left}px, ${(pr.height - r.height) / 2}px)`;
+    }
+
+    function setActive(id: string) {
+      if (id === activeId) return;
+      activeId = id;
+      navLinks.forEach(a => {
+        const href = a.getAttribute('href')?.replace('#', '');
+        const isActive = href === id;
+        a.classList.toggle('active', isActive);
+        if (isActive) moveBackdrop(a);
+      });
+      mobileItems.forEach(a => {
+        const href = a.getAttribute('href')?.replace('#', '');
+        a.classList.toggle('active', href === id);
+      });
+    }
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+
+    // Init backdrop
+    requestAnimationFrame(() => {
+      const active = document.querySelector('.nav-link.active');
+      if (active) moveBackdrop(active);
+    });
+
+    // ============================================================
+    // PROFILE CARD PARALLAX (desktop only)
+    // ============================================================
+    const profileCard = document.getElementById('profile-card') as HTMLElement | null;
+    const floatWrap = profileCard?.closest<HTMLElement>('.floating');
+    if (floatWrap && profileCard) {
+      let rect: DOMRect | null = null;
+      let raf: number | null = null;
+      const canTilt = () => window.matchMedia('(hover:hover) and (pointer:fine) and (min-width:768px)').matches;
+      floatWrap.addEventListener('mouseenter', () => { if (canTilt()) rect = floatWrap.getBoundingClientRect(); });
+      floatWrap.addEventListener('mousemove', e => {
+        if (!canTilt()) return;
+        if (!rect) rect = floatWrap.getBoundingClientRect();
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          raf = null;
+          const x = ((e.clientX - rect!.left) / rect!.width - 0.5) * 4;
+          const y = ((e.clientY - rect!.top) / rect!.height - 0.5) * -4;
+          profileCard.style.transform = `rotateY(${x}deg) rotateX(${y}deg) scale(1.015)`;
+        });
+      });
+      floatWrap.addEventListener('mouseleave', () => {
+        if (raf) cancelAnimationFrame(raf);
+        raf = null;
+        profileCard.style.transform = '';
+      });
+    }
+  });
+</script>

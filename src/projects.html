@@ -7,9 +7,10 @@
     <title>All Projects | Mikhael Raka</title>
     <link rel="stylesheet" href="css/tailwind-built.css">
     <link rel="stylesheet" href="css/style.css">
-    
+
     <script src="js/translations.js" defer></script>
     <script src="js/data.js" defer></script>
+    <script src="js/theme-images.js" defer></script>
     <script src="js/modal.js" defer></script>
 </head>
 
@@ -21,7 +22,8 @@
     <div class="fixed top-8 left-8 z-50 hidden md:block">
         <div class="liquid-glass !bg-white/40 dark:!bg-slate-900/40 rounded-full px-5 py-2.5 flex items-center gap-3">
             <span class="brand-sparkle-icon sparkle-anim" aria-hidden="true"></span>
-            <span class="font-bold text-label-md text-on-surface dark:text-white tracking-widest uppercase">Mikhael Rakarenzo</span>
+            <span class="font-bold text-label-md text-on-surface dark:text-white tracking-widest uppercase">Mikhael
+                Rakarenzo</span>
         </div>
     </div>
 
@@ -44,16 +46,25 @@
                 </a>
             </nav>
 
-            <div class="flex gap-4 items-center border-l border-outline-variant/30 dark:border-white/10 pl-6 relative z-20">
+            <div
+                class="flex gap-4 items-center border-l border-outline-variant/30 dark:border-white/10 pl-6 relative z-20">
                 <button class="theme-toggle-btn relative js-theme-toggle" id="theme-toggle" title="Toggle Theme">
-                    <div class="theme-icon-wrap overflow-hidden relative w-[18px] h-[18px] flex items-center justify-center">
-                        <img id="theme-icon" class="js-theme-icon w-full h-full object-contain" src="../src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" data-dark-src="../src/assets/dark_mode_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg" data-light-src="../src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Theme icon" />
+                    <div
+                        class="theme-icon-wrap overflow-hidden relative w-[18px] h-[18px] flex items-center justify-center">
+                        <img id="theme-icon" class="js-theme-icon w-full h-full object-contain"
+                            src="../src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+                            data-dark-src="../src/assets/dark_mode_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg"
+                            data-light-src="../src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+                            alt="Theme icon" />
                     </div>
                 </button>
 
-                <button class="hover:scale-105 transition-transform flex items-center gap-1 rounded-full px-3 py-2 text-xs font-bold text-on-surface-variant dark:text-primary js-lang-toggle"
+                <button
+                    class="hover:scale-105 transition-transform flex items-center gap-1 rounded-full px-3 py-2 text-xs font-bold text-on-surface-variant dark:text-primary js-lang-toggle"
                     id="lang-toggle" title="Change Language">
-                    <img class="js-lang-icon w-[16px] h-[16px]" src="../src/assets/language%20black.svg" data-dark-src="../src/assets/language%20white.svg" data-light-src="../src/assets/language%20black.svg" alt="Language icon" />
+                    <img class="js-lang-icon w-[16px] h-[16px]" src="../src/assets/language%20black.svg"
+                        data-dark-src="../src/assets/language%20white.svg"
+                        data-light-src="../src/assets/language%20black.svg" alt="Language icon" />
                     <span>EN</span>
                 </button>
             </div>
@@ -65,17 +76,27 @@
         <div class="flex items-center justify-between gap-3">
             <div class="liquid-glass !bg-white/30 dark:!bg-slate-900/30 rounded-full px-4 py-2 flex items-center gap-3">
                 <span class="brand-sparkle-icon sparkle-anim" aria-hidden="true"></span>
-                <span class="font-bold text-xs sm:text-sm text-on-surface dark:text-white tracking-widest uppercase">Mikhael Rakarenzo</span>
+                <span
+                    class="font-bold text-xs sm:text-sm text-on-surface dark:text-white tracking-widest uppercase">Mikhael
+                    Rakarenzo</span>
             </div>
             <div class="flex items-center gap-2">
                 <button class="theme-toggle-btn relative js-theme-toggle" title="Toggle Theme">
-                    <div class="theme-icon-wrap overflow-hidden relative w-[18px] h-[18px] flex items-center justify-center">
-                        <img class="js-theme-icon w-full h-full object-contain" src="../src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" data-dark-src="../src/assets/dark_mode_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg" data-light-src="../src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="Theme icon" />
+                    <div
+                        class="theme-icon-wrap overflow-hidden relative w-[18px] h-[18px] flex items-center justify-center">
+                        <img class="js-theme-icon w-full h-full object-contain"
+                            src="../src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+                            data-dark-src="../src/assets/dark_mode_24dp_EFEFEF_FILL0_wght400_GRAD0_opsz24.svg"
+                            data-light-src="../src/assets/light_mode_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg"
+                            alt="Theme icon" />
                     </div>
                 </button>
-                <button class="hover:scale-105 transition-transform flex items-center gap-1 rounded-full px-3 py-2 text-xs font-bold text-on-surface-variant dark:text-primary js-lang-toggle"
+                <button
+                    class="hover:scale-105 transition-transform flex items-center gap-1 rounded-full px-3 py-2 text-xs font-bold text-on-surface-variant dark:text-primary js-lang-toggle"
                     title="Change Language">
-                    <img class="js-lang-icon w-[16px] h-[16px]" src="../src/assets/language%20black.svg" data-dark-src="../src/assets/language%20white.svg" data-light-src="../src/assets/language%20black.svg" alt="Language icon" />
+                    <img class="js-lang-icon w-[16px] h-[16px]" src="../src/assets/language%20black.svg"
+                        data-dark-src="../src/assets/language%20white.svg"
+                        data-light-src="../src/assets/language%20black.svg" alt="Language icon" />
                     <span>EN</span>
                 </button>
             </div>
@@ -84,20 +105,25 @@
 
     <!-- Mobile Bottom Navigation -->
     <nav class="mobile-bottom-nav md:hidden fixed bottom-0 left-0 right-0 z-50 px-4 pb-4 pt-2">
-        <div class="flex justify-between gap-2 max-w-3xl mx-auto bg-white/90 dark:bg-slate-900/90 border border-outline-variant/20 dark:border-white/10 rounded-full px-4 py-3 shadow-2xl backdrop-blur-xl">
-            <a href="../index.html" class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+        <div
+            class="flex justify-between gap-2 max-w-3xl mx-auto bg-white/90 dark:bg-slate-900/90 border border-outline-variant/20 dark:border-white/10 rounded-full px-4 py-3 shadow-2xl backdrop-blur-xl">
+            <a href="../index.html"
+                class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
                 <span class="mobile-nav-icon mobile-nav-icon-home" aria-hidden="true"></span>
                 <span data-i18n="nav.home">Home</span>
             </a>
-            <a href="projects.html" class="mobile-nav-item active flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+            <a href="projects.html"
+                class="mobile-nav-item active flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
                 <span class="mobile-nav-icon mobile-nav-icon-project" aria-hidden="true"></span>
                 <span data-i18n="nav.project">Projects</span>
             </a>
-            <a href="certificates.html" class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+            <a href="certificates.html"
+                class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
                 <span class="mobile-nav-icon mobile-nav-icon-cert" aria-hidden="true"></span>
                 <span data-i18n="nav.cert">Certificates</span>
             </a>
-<a href="../index.html#tentang" class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
+            <a href="../index.html#tentang"
+                class="mobile-nav-item flex flex-col items-center gap-1 text-[11px] font-bold uppercase tracking-widest text-on-surface dark:text-white">
                 <span class="mobile-nav-icon mobile-nav-icon-about" aria-hidden="true"></span>
                 <span data-i18n="nav.about">About</span>
             </a>
@@ -111,8 +137,8 @@
             <h1 class="font-display-2xl text-6xl font-black tracking-tighter text-primary" data-i18n="project.title">
                 Enterprise Projects
             </h1>
-            <p
-                class="text-on-surface-variant dark:text-gray-400 max-w-2xl leading-relaxed font-medium uppercase tracking-widest text-xs" data-i18n="project.desc">
+            <p class="text-on-surface-variant dark:text-gray-400 max-w-2xl leading-relaxed font-medium uppercase tracking-widest text-xs"
+                data-i18n="project.desc">
                 A comprehensive collection of my professional journey and enterprise web applications.
             </p>
         </div>
@@ -154,12 +180,16 @@
                     projData.forEach(p => {
                         const displayDesc = (typeof currentLang !== 'undefined' && currentLang === 'id' && p.desc_id) ? p.desc_id : p.desc;
                         const displayCategory = (typeof currentLang !== 'undefined' && currentLang === 'id' && p.category_id) ? p.category_id : p.category;
+                        const thumbs = typeof getThemedImages === 'function' ? getThemedImages(p) : { dark: p.img, light: p.img };
+                        const thumbSrc = typeof themedSrc === 'function' ? themedSrc(thumbs) : p.img;
 
                         const card = document.createElement('div');
                         card.className = "card-outline liquid-glass card-layered rounded-[2.5rem] overflow-hidden transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_50px_rgba(var(--primary-rgb,143,176,96),0.15)] group cursor-pointer p-4 flex flex-col";
                         card.innerHTML = `
                             <div class="rounded-[2rem] overflow-hidden mb-6 aspect-[4/3] p-1">
-                                <img alt="${p.title}" class="w-full h-full object-cover rounded-[1.75rem] group-hover:scale-105 transition-transform duration-700" src="${p.img}" width="400" height="300" loading="lazy" decoding="async">
+                                <img alt="${p.title}" class="js-theme-aware-thumb w-full h-full object-cover rounded-[1.75rem] group-hover:scale-105 transition-transform duration-700"
+                                     src="${thumbSrc}" data-thumb-dark="${thumbs.dark}" data-thumb-light="${thumbs.light}"
+                                     width="400" height="300" loading="lazy" decoding="async">
                             </div>
                             <div class="px-2 pb-2 flex-1 flex flex-col">
                                 <div class="flex justify-between items-start mb-2">
@@ -217,19 +247,28 @@
             <div class="flex flex-col items-center gap-4">
                 <div
                     class="font-display-xl text-headline-md font-black tracking-tighter text-on-surface dark:text-white flex items-center gap-3">
-                    <svg class="text-primary text-2xl sparkle-anim" width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="text-primary text-2xl sparkle-anim" width="1em" height="1em" viewBox="0 0 24 24"
+                        aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 0h24v24H0z" fill="none" />
-                        <path fill="currentColor" d="m19 9l-1.25-2.75L15 5l2.75-1.25L19 1l1.25 2.75L23 5l-2.75 1.25L19 9Zm0 14l-1.25-2.75L15 19l2.75-1.25L19 15l1.25 2.75L23 19l-2.75 1.25L19 23ZM9 20l-2.5-5.5L1 12l5.5-2.5L9 4l2.5 5.5L17 12l-5.5 2.5L9 20Z" />
+                        <path fill="currentColor"
+                            d="m19 9l-1.25-2.75L15 5l2.75-1.25L19 1l1.25 2.75L23 5l-2.75 1.25L19 9Zm0 14l-1.25-2.75L15 19l2.75-1.25L19 15l1.25 2.75L23 19l-2.75 1.25L19 23ZM9 20l-2.5-5.5L1 12l5.5-2.5L9 4l2.5 5.5L17 12l-5.5 2.5L9 20Z" />
                     </svg>
-                    MIKHAEL RAKARENZO 
-                <div class="flex gap-4 p-4 liquid-glass rounded-full border-dashed scale-90 opacity-80 hover:opacity-100 transition-opacity">
-    <button class="theme-color-btn w-6 h-6 rounded-full border-2 border-white/20 shadow-lg transition-transform hover:scale-125 active:scale-95" style="background-color: #8FB060;" data-color="#8FB060" title="Default Green"></button>
-    <!-- Red button removed -->
-    <button class="theme-color-btn w-6 h-6 rounded-full border-2 border-white/20 shadow-lg transition-transform hover:scale-125 active:scale-95" style="background-color: #186301;" data-color="#186301" title="Dark Green"></button>
-    <button class="theme-color-btn w-6 h-6 rounded-full border-2 border-white/20 shadow-lg transition-transform hover:scale-125 active:scale-95" style="background-color: #0bdbb6;" data-color="#0bdbb6" title="Teal"></button>
-</div>
-</div>
-        </div>
+                    MIKHAEL RAKARENZO
+                    <div
+                        class="flex gap-4 p-4 liquid-glass rounded-full border-dashed scale-90 opacity-80 hover:opacity-100 transition-opacity">
+                        <button
+                            class="theme-color-btn w-6 h-6 rounded-full border-2 border-white/20 shadow-lg transition-transform hover:scale-125 active:scale-95"
+                            style="background-color: #8FB060;" data-color="#8FB060" title="Default Green"></button>
+                        <!-- Red button removed -->
+                        <button
+                            class="theme-color-btn w-6 h-6 rounded-full border-2 border-white/20 shadow-lg transition-transform hover:scale-125 active:scale-95"
+                            style="background-color: #186301;" data-color="#186301" title="Dark Green"></button>
+                        <button
+                            class="theme-color-btn w-6 h-6 rounded-full border-2 border-white/20 shadow-lg transition-transform hover:scale-125 active:scale-95"
+                            style="background-color: #0bdbb6;" data-color="#0bdbb6" title="Teal"></button>
+                    </div>
+                </div>
+            </div>
     </footer>
 </body>
 
