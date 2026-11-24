@@ -1,0 +1,23 @@
+---
+const links = [
+  { id: "home", href: "/", en: "Home", idText: "Beranda" },
+  { id: "projects", href: "/projects.html", en: "Projects", idText: "Proyek" },
+  { id: "certificates", href: "/certificates.html", en: "Certificates", idText: "Sertifikat" },
+  { id: "about", href: "/about.html", en: "About", idText: "Tentang" }
+];
+const { page } = Astro.props;
+---
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Mikhael"><span class="star" aria-hidden="true">✦</span><span>Mikhael</span></a>
+    <div class="header-right">
+      <nav class="nav" aria-label="Navigasi utama">
+        {links.map((link) => <a href={link.href} class:list={{ active: link.id === page }} data-id={link.idText} data-en={link.en}>{link.idText}</a>)}
+      </nav>
+      <div class="tools">
+        <button class="theme-toggle" data-action="theme" aria-label="Ganti tema"><span class="theme-icon" aria-hidden="true"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></span><span class="theme-label" data-id="Mode gelap" data-en="Dark mode">Mode gelap</span></button>
+        <button type="button" class="lang" data-lang-toggle aria-label="Ganti bahasa ke Inggris"><svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg><span data-current-lang>ID</span></button>
+      </div>
+    </div>
+  </div>
+</header>

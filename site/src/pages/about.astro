@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SITE from "../data/site.js";
+
+const about = SITE.about;
+---
+<BaseLayout page="about" title="Tentang" description="Profil, pendidikan, dan pengalaman Mikhael Rakarenzo Mahendra.">
+  <main class="wrap">
+    <section class="about-text reveal"><h2 data-id={about.heading.id} data-en={about.heading.en}>{about.heading.id}</h2>{about.paragraphs.map((paragraph) => <p data-id={paragraph.id} data-en={paragraph.en}>{paragraph.id}</p>)}</section>
+    <div class="about-banner reveal"><img src={`/${SITE.aboutImage}`} alt={SITE.name} loading="lazy" /></div>
+    <section class="short-bio reveal"><h3 data-id={about.shortBio.heading.id} data-en={about.shortBio.heading.en}>{about.shortBio.heading.id}</h3><p data-id={about.shortBio.text.id} data-en={about.shortBio.text.en}>{about.shortBio.text.id}</p></section>
+    <section class="cv-section reveal"><h2 data-id="Curriculum Vitae" data-en="Curriculum Vitae">Curriculum Vitae</h2><p data-id="Lihat atau unduh CV saya dalam bahasa pilihan." data-en="View or download my CV in your preferred language.">Lihat atau unduh CV saya dalam bahasa pilihan.</p>
+      <div class="cv-panel"><div class="cv-lang" role="group" aria-label="Bahasa CV"><button type="button" data-cv-lang="en">English</button><button type="button" data-cv-lang="id" class="on">Indonesia</button></div>
+        <div class="cv-actions"><a class="btn" data-cv-view href={`/${about.cv.id}`} target="_blank" rel="noopener noreferrer">Lihat</a><a class="btn btn-primary" data-cv-download href={`/${about.cv.id}`} download>Unduh</a></div>
+      </div>
+    </section>
+    {[{ title: "Pendidikan", titleEn: "Education", items: SITE.education }, { title: "Pengalaman", titleEn: "Experience", items: SITE.experience }].map((group) => <section class="timeline-section"><h2 class="reveal" data-id={group.title} data-en={group.titleEn}>{group.title}</h2><ol class="timeline">{group.items.map((item) => <li class="t-item reveal"><span class="logo-wrap"><img class="timeline-logo" src={`/${item.logo}`} alt={`Logo ${typeof item.org === "string" ? item.org : item.org.id}`} loading="lazy" decoding="async" /><span class="logo-fallback" role="img" aria-hidden="true">{item.initials}</span></span><div class="timeline-content"><p class="timeline-date" data-id={typeof item.date === "string" ? item.date : item.date.id} data-en={typeof item.date === "string" ? item.date : item.date.en}>{typeof item.date === "string" ? item.date : item.date.id}</p><h3 data-id={typeof item.title === "string" ? item.title : item.title.id} data-en={typeof item.title === "string" ? item.title : item.title.en}>{typeof item.title === "string" ? item.title : item.title.id}</h3><div class="org" data-id={typeof item.org === "string" ? item.org : item.org.id} data-en={typeof item.org === "string" ? item.org : item.org.en}>{typeof item.org === "string" ? item.org : item.org.id}</div><p data-id={item.desc.id} data-en={item.desc.en}>{item.desc.id}</p></div></li>)}</ol></section>)}
+    <section class="connect-section reveal"><h2 data-id="Mari Terhubung" data-en="Let's Connect">Mari Terhubung</h2><p><span data-id={SITE.connect.before.id} data-en={SITE.connect.before.en}>{SITE.connect.before.id}</span> <a href={SITE.connect.linkUrl} target="_blank" rel="noopener noreferrer">{SITE.connect.linkLabel}</a><span data-id={SITE.connect.middle.id} data-en={SITE.connect.middle.en}>{SITE.connect.middle.id}</span> <a href={`mailto:${SITE.email}`} data-id="email" data-en="email">email</a> <span data-id={SITE.connect.after.id} data-en={SITE.connect.after.en}>{SITE.connect.after.id}</span></p></section>
+  </main>
+</BaseLayout>

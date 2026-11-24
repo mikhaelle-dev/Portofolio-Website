@@ -1,22 +1,24 @@
-# Mikhael Rakarenzo — Portfolio
+# Portofolio Mikhael Rakarenzo Mahendra
 
-Portofolio ini saat ini dibuat dengan HTML, CSS, dan JavaScript vanilla tanpa
-proses build atau dependensi npm. File situs dan asetnya berada di [`site/`](./site/).
+Situs utama menggunakan Astro dan dirender menjadi HTML statis. Folder `site/` berisi sumber kode dan aset untuk deployment.
 
 ## Menjalankan secara lokal
 
-Buka `site/index.html` langsung di browser. Tidak perlu menjalankan `npm install`
-atau server development.
+```sh
+cd site
+npm ci
+npm run dev
+```
 
-## Deployment
+Build dan pratinjau hasil build:
 
-Vercel menyajikan file statis dari folder `site/`. Tidak ada perintah instalasi
-dependensi atau build yang diperlukan untuk versi saat ini.
+```sh
+npm run build
+npm run preview
+```
 
-## Rencana migrasi ke Astro
+Output build lokal berada di `site/dist/`. Konfigurasi Vercel di root memasang dependensi dari lockfile Astro di `site/`, menjalankan build, lalu menerbitkan folder tersebut.
 
-Jika nanti ingin bermigrasi ke Astro, halaman HTML dapat diubah menjadi halaman
-Astro, aset publik dipindahkan ke struktur yang sesuai, lalu ditambahkan
-`package.json` dan konfigurasi build. Setelah itu, perbarui konfigurasi Vercel
-agar menjalankan build Astro dan menyajikan folder hasil build. Sampai migrasi
-tersebut dilakukan, situs tetap menggunakan versi vanilla di `site/`.
+## Mengubah konten
+
+Ubah teks, proyek, sertifikat, pendidikan, dan pengalaman di `site/src/data/site.js`. Komponen halaman berada di `site/src/pages/` dan `site/src/components/`. Aset situs berada di `site/public/assets/`.

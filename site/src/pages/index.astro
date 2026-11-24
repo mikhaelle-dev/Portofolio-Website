@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
+import SITE from "../data/site.js";
+
+const project = SITE.projects[0];
+const featuredCertificates = SITE.certificates.filter((cert) => cert.showOnHome !== false).slice(0, 6);
+const skillRows = [SITE.skills.filter((_, i) => i % 3 === 0), SITE.skills.filter((_, i) => i % 3 === 1), SITE.skills.filter((_, i) => i % 3 === 2)];
+const heroRole = JSON.stringify(SITE.roles);
+---
+<BaseLayout page="home" title="Portofolio">
+  <main class="wrap home-page">
+    <section class="hero">
+      <div class="hero-text reveal">
+        <p class="hello" data-id="Halo, aku" data-en="Hello, I'm">Halo, aku</p>
+        <h1>{SITE.heroName || SITE.name}</h1>
+        <p class="role-line"><span class="rotator" data-roles={heroRole}>{SITE.roles[0]}</span></p>
+        <p class="lead" data-id={SITE.tagline.id} data-en={SITE.tagline.en}>{SITE.tagline.id}</p>
+        <div class="hero-tech">
+          <p class="tech-label" data-id="Perangkat & teknologi" data-en="Tools & technologies">Perangkat & teknologi</p>
+          <div class="marquees" role="group" aria-label="Perangkat dan teknologi">
+            <span class="sr-only">{SITE.skills.map((skill) => skill.name).join(", ")}</span>
+            {skillRows.map((row, i) => {
+              const repeated = [...row, ...row];
+              return <div class:list={["marquee", i === 1 ? "marquee-right" : "marquee-left"]}><div class="marquee-track" aria-hidden="true">{repeated.map((skill) => <span class="badge"><img src={`/${skill.image}`} alt="" loading="lazy" />{skill.name}</span>)}</div></div>;
+            })}
+          </div>
+        </div>
+        <div class="hero-cta"><a class="btn btn-primary" href="/projects.html"><span data-id="Lihat proyek" data-en="View projects">Lihat proyek</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="hero-photo reveal"><div class="frame"><img src={`/${SITE.photo}`} alt={SITE.name} fetchpriority="high" /></div></div>
+    </section>
+    <section class="section">
+      <div class="divider reveal"><span class="pill" data-id="Lihat proyekku" data-en="Check out my projects">Lihat proyekku</span></div>
+      <div class="grid cols-3"><Card item={project} index={0} kind="project" /></div>
+      <div class="center"><a class="btn btn-primary" href="/projects.html"><span data-id="Lihat semua proyek" data-en="See all projects">Lihat semua proyek</span></a></div>
+    </section>
+    <section class="section">
+      <div class="divider reveal"><span class="pill" data-id="Sertifikasiku" data-en="My certifications">Sertifikasiku</span></div>
+      <div class="grid cols-3">{featuredCertificates.map((cert) => <Card item={cert} index={SITE.certificates.indexOf(cert)} kind="cert" />)}</div>
+      <div class="center"><a class="btn btn-primary" href="/certificates.html"><span data-id="Lihat semua sertifikat" data-en="See all certificates">Lihat semua sertifikat</span></a></div>
+    </section>
+  </main>
+</BaseLayout>

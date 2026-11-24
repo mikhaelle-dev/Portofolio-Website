@@ -1,5 +1,5 @@
-/* Portfolio content and local asset paths. Text can be provided in Indonesian and English. */
-window.SITE = {
+﻿/* Portfolio content and local asset paths. Text can be provided in Indonesian and English. */
+const SITE = {
   defaultLang: "id",
 
   name: "Mikhael Rakarenzo Mahendra",
@@ -60,6 +60,42 @@ window.SITE = {
   ],
 
   certificates: [
+    {
+      name: "MikroTik Certified Network Associate (MTCNA)",
+      issuer: "MikroTik",
+      date: "15/04/2025",
+      image: "assets/images/certificates/mtcna-thumb.jpg",
+      images: ["assets/images/certificates/mtcna.jpg"],
+      showOnHome: false,
+      description: {
+        en: "MikroTik Certified Network Associate certification.",
+        id: "Sertifikasi MikroTik Certified Network Associate."
+      },
+      content: {
+        en: "## Certification\nCertified Network Associate (MTCNA), issued by MikroTik.",
+        id: "## Sertifikasi\nCertified Network Associate (MTCNA), diterbitkan oleh MikroTik."
+      },
+      skills: ["MikroTik", "Network Administration", "Routing"],
+      buttons: [{ label: { en: "View certificate PDF", id: "Lihat PDF sertifikat" }, url: "assets/docs/img20261124_06351198.pdf" }]
+    },
+    {
+      name: "Network Engineer (Junior Network Administrator)",
+      issuer: "BNSP · LSP Teknologi Digital",
+      date: "22/05/2025",
+      image: "assets/images/certificates/bnsp-thumb.jpg",
+      images: ["assets/images/certificates/bnsp.jpg", "assets/images/certificates/bnsp-units.jpg"],
+      showOnHome: false,
+      description: {
+        en: "BNSP certificate of competence in computer network engineering, with the Junior Network Administrator qualification.",
+        id: "Sertifikat kompetensi BNSP bidang Rekayasa Jaringan Komputer dengan kualifikasi Network Administrator Muda."
+      },
+      content: {
+        en: "## Competency\nCertified in Computer Network Engineering with the Junior Network Administrator qualification. The gallery includes the certificate and its competency unit list.",
+        id: "## Kompetensi\nKompeten pada bidang Rekayasa Jaringan Komputer dengan kualifikasi Network Administrator Muda. Galeri memuat sertifikat dan daftar unit kompetensinya."
+      },
+      skills: ["Network Engineering", "Network Administration", "Routing", "Wireless Networking"],
+      buttons: [{ label: { en: "View certificate PDF", id: "Lihat PDF sertifikat" }, url: "assets/docs/img20261124_06394704.pdf" }]
+    },
     {
       name: "Intermediate Associate Network Administrator",
       issuer: "Komdigi",
@@ -267,3 +303,6 @@ window.SITE = {
     }
   }
 };
+
+export default SITE;
+

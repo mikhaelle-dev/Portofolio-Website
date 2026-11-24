@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
+import SITE from "../data/site.js";
+---
+<BaseLayout page="certificates" title="Sertifikat" description="Sertifikat pembelajaran jaringan dan keamanan siber Mikhael Rakarenzo Mahendra.">
+  <main class="wrap">
+    <div class="page-title reveal"><h1 data-id="Sertifikat" data-en="Certificates">Sertifikat</h1><p data-id="Kursus dan sertifikasi yang pernah aku raih." data-en="Courses and certifications I have earned.">Kursus dan sertifikasi yang pernah aku raih.</p></div>
+    <div class="grid cols-3">{SITE.certificates.map((certificate, index) => <Card item={certificate} index={index} kind="cert" />)}</div>
+  </main>
+</BaseLayout>

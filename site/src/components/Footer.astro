@@ -1,0 +1,7 @@
+---
+import SITE from "../data/site.js";
+---
+<footer class="site-footer"><div class="wrap">
+  <div class="footer-meta"><a class="footer-brand" href="/"><span class="star" aria-hidden="true">✦</span><span>Mikhael</span></a><span class="footer-divider" aria-hidden="true"></span><small>© {new Date().getFullYear()} {SITE.name}. <span data-id="Hak cipta dilindungi." data-en="All rights reserved.">Hak cipta dilindungi.</span></small></div>
+  <div class="socials">{SITE.socials.map((social) => <a class="footer-social" href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.label}><img src={`/${social.image}`} alt="" /></a>)}</div>
+</div></footer>

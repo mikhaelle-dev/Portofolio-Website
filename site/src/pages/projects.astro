@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
+import SITE from "../data/site.js";
+---
+<BaseLayout page="projects" title="Proyek" description="Kumpulan proyek jaringan dan simulasi yang dibuat Mikhael Rakarenzo Mahendra.">
+  <main class="wrap">
+    <div class="page-title reveal"><h1 data-id="Proyek" data-en="Projects">Proyek</h1><p data-id="Kumpulan karya yang pernah aku buat." data-en="A collection of things I have built.">Kumpulan karya yang pernah aku buat.</p></div>
+    <div class="grid cols-3">{SITE.projects.map((project, index) => <Card item={project} index={index} kind="project" />)}</div>
+  </main>
+</BaseLayout>

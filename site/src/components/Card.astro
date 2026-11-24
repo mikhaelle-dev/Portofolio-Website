@@ -1,0 +1,15 @@
+---
+const { item, index, kind } = Astro.props;
+const localize = (value) => typeof value === "object" && value !== null ? value : { id: value ?? "", en: value ?? "" };
+const image = item.image;
+const payload = { ...item, type: kind, image: `/${item.image}`, images: (item.images || [item.image]).map((src) => `/${src}`), imageLight: item.imageLight ? `/${item.imageLight}` : null, imagesDark: (item.images || [item.image]).map((src) => `/${src}`), imagesLight: item.imagesLight?.map((src) => `/${src}`) };
+const description = localize(item.description);
+---
+<button class="fb reveal" type="button" data-open={kind} data-i={index} data-item={JSON.stringify(payload)}>
+  <span class="card-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+  <span class="front"><span class="thumb"><img src={`/${image}`} data-dark-src={`/${item.image}`} data-light-src={`/${item.imageLight || item.image}`} alt={item.name} loading="lazy" /></span>
+    <span class="card-body"><h3>{item.name}</h3><p class="card-description" data-id={description.id} data-en={description.en}>{description.id}</p>
+      {kind === "cert" && <span class="card-meta"><span>{item.issuer}</span>{item.date && <span>{item.date}</span>}</span>}
+    </span>
+  </span>
+</button>
