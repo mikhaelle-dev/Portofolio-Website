@@ -26,19 +26,19 @@ const heroRole = JSON.stringify(SITE.roles);
             })}
           </div>
         </div>
-        <div class="hero-cta"><a class="btn btn-primary" href="/projects.html"><span data-id="Lihat proyek" data-en="View projects">Lihat proyek</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+        <div class="hero-cta"><a class="btn btn-primary" href="/projects"><span data-id="Lihat proyek" data-en="View projects">Lihat proyek</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
       </div>
       <div class="hero-photo reveal"><div class="frame"><img src={`/${SITE.photo}`} alt={SITE.name} fetchpriority="high" /></div></div>
     </section>
     <section class="section">
       <div class="divider reveal"><span class="pill" data-id="Lihat proyekku" data-en="Check out my projects">Lihat proyekku</span></div>
       <div class="grid cols-3"><Card item={project} index={0} kind="project" /></div>
-      <div class="center"><a class="btn btn-primary" href="/projects.html"><span data-id="Lihat semua proyek" data-en="See all projects">Lihat semua proyek</span></a></div>
+      <div class="center"><a class="btn btn-primary" href="/projects"><span data-id="Lihat semua proyek" data-en="See all projects">Lihat semua proyek</span></a></div>
     </section>
     <section class="section">
       <div class="divider reveal"><span class="pill" data-id="Sertifikasiku" data-en="My certifications">Sertifikasiku</span></div>
       <div class="grid cols-3">{featuredCertificates.map((cert) => <Card item={cert} index={SITE.certificates.indexOf(cert)} kind="cert" />)}</div>
-      <div class="center"><a class="btn btn-primary" href="/certificates.html"><span data-id="Lihat semua sertifikat" data-en="See all certificates">Lihat semua sertifikat</span></a></div>
+      <div class="center"><a class="btn btn-primary" href="/certificates"><span data-id="Lihat semua sertifikat" data-en="See all certificates">Lihat semua sertifikat</span></a></div>
     </section>
   </main>
 </BaseLayout>

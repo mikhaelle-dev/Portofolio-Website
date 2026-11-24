@@ -2,6 +2,12 @@
   "installCommand": "npm --prefix site ci",
   "buildCommand": "npm --prefix site run build",
   "outputDirectory": "site/dist",
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/projects.html", "destination": "/projects", "permanent": true },
+    { "source": "/certificates.html", "destination": "/certificates", "permanent": true },
+    { "source": "/about.html", "destination": "/about", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",
